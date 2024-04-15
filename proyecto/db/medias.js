@@ -1,5 +1,88 @@
 const medias = {
-    lista_productos: [
+  
+    lista_usuarios:[ {
+        email: 'usuario@gmail.com',
+        usuario: 'nombredeusuario',
+        contraseña: 'contraseña123',
+        fechaNacimiento: '1990-01-01', 
+        nroDocumento: 123456789,
+        fotoPerfil: 'ruta/a/la/foto.jpg',
+    },
+    {
+      email: 'usuario@gmail.com',
+      usuario: 'nombredeusuario',
+      contraseña: 'contraseña123',
+      fechaNacimiento: '1990-01-01', 
+      nroDocumento: 123456789,
+      fotoPerfil: 'ruta/a/la/foto.jpg',
+  },
+  {
+    email: 'usuario@gmail.com',
+    usuario: 'nombredeusuario',
+    contraseña: 'contraseña123',
+    fechaNacimiento: '1990-01-01', 
+    nroDocumento: 123456789,
+    fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+{
+  email: 'usuario@gmail.com',
+  usuario: 'nombredeusuario',
+  contraseña: 'contraseña123',
+  fechaNacimiento: '1990-01-01', 
+  nroDocumento: 123456789,
+  fotoPerfil: 'ruta/a/la/foto.jpg',
+},
+  
+  ],
+ lista_productos: [
       {
         marca: "TM",
         modelo: "scirocco",
@@ -241,4 +324,7 @@ const medias = {
     ]
   };
   
+  
+ 
+
   module.exports = medias;
