@@ -1,0 +1,210 @@
+const autos = {
+    lista: [
+      {
+        marca: "volkswagen",
+        modelo: "scirocco",
+        anio: 2016,
+        color: "negro",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "scirocco",
+        anio: 2020,
+        color: "rojo",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "scirocco",
+        anio: 2015,
+        color: "blanco",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "golf",
+        anio: 2016,
+        color: "blanco",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "golf",
+        anio: 2020,
+        color: "gris",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "golf",
+        anio: 2019,
+        color: "negro",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "vento",
+        anio: 2019,
+        color: "negro",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "vento",
+        anio: 2014,
+        color: "azul",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "vento",
+        anio: 2010,
+        color: "blanco",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "amarok",
+        anio: 2020,
+        color: "negro",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "amarok",
+        anio: 2019,
+        color: "blanco",
+      },
+      {
+        marca: "volkswagen",
+        modelo: "amarok",
+        anio: 2010,
+        color: "gris",
+      },
+      {
+        marca: "audi",
+        modelo: "tt",
+        anio: 2019,
+        color: "blanco",
+      },
+      {
+        marca: "audi",
+        modelo: "tt",
+        anio: 2012,
+        color: "negro",
+      },
+      {
+        marca: "audi",
+        modelo: "a6",
+        anio: 2020,
+        color: "negro",
+      },
+      {
+        marca: "audi",
+        modelo: "a6",
+        anio: 2016,
+        color: "rojo",
+      },
+      {
+        marca: "audi",
+        modelo: "a3",
+        anio: 2016,
+        color: "negro",
+      },
+      {
+        marca: "audi",
+        modelo: "a3",
+        anio: 2020,
+        color: "negro",
+      },
+      {
+        marca: "audi",
+        modelo: "q5",
+        anio: 2018,
+        color: "negro",
+      },
+      {
+        marca: "audi",
+        modelo: "q5",
+        anio: 2015,
+        color: "azul",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "camaro",
+        anio: 2015,
+        color: "rojo",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "camaro",
+        anio: 20120,
+        color: "negro",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "camaro",
+        anio: 2018,
+        color: "blanco",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "onix",
+        anio: 2016,
+        color: "gris",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "onix",
+        anio: 2017,
+        color: "blanco",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "onix",
+        anio: 2019,
+        color: "rojo",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "cruze",
+        anio: 2018,
+        color: "negro",
+      },
+      {
+        marca: "chevrolet",
+        modelo: "cruze",
+        anio: 2020,
+        color: "blanco",
+      },
+      {
+        marca: "nissan",
+        modelo: "sentra",
+        anio: 2017,
+        color: "negro",
+      },
+      {
+        marca: "nissan",
+        modelo: "sentra",
+        anio: 2020,
+        color: "gris",
+      },
+      {
+        marca: "nissan",
+        modelo: "note",
+        anio: 2018,
+        color: "rojo",
+      },
+      {
+        marca: "nissan",
+        modelo: "note",
+        anio: 2020,
+        color: "blanco",
+      },
+      {
+        marca: "nissan",
+        modelo: "x-trail",
+        anio: 2020,
+        color: "marron",
+      },
+      {
+        marca: "nissan",
+        modelo: "x-trail",
+        anio: 2016,
+        color: "gris",
+      }
+    ]
+  };
+  
+  module.exports = autos;
