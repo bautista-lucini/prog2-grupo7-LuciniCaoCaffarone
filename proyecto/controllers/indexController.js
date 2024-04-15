@@ -1,4 +1,4 @@
-//const db = require('../db/basedatos.sql');
+const db = require('../db/basedatos.sql');
 
 const indexController = {
     index: function(req, res) {
