@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #dadada;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -171,7 +171,11 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: #393838;
+}
+
+.color-white{
+  color: #ffffff;
 }
 
 .product-box {
