@@ -54,6 +54,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion: "Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "",
@@ -76,6 +77,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias de algodón suave y transpirable, ideales para el uso diario.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "",
@@ -98,6 +100,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "",
@@ -120,6 +123,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "",
@@ -142,6 +146,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario.",
@@ -164,6 +169,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
@@ -186,6 +192,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario.",
@@ -208,6 +215,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
@@ -230,6 +238,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "Realmente aprecio la calidad de estas medias TM. Perfectas para el día a día.",
@@ -252,6 +261,7 @@ const datos = {
         modelo: "scirocco",
         anio: 2023,
         color: "negro",
+        descripcion: "Medias de algodón suave y transpirable, ideales para el uso diario.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
