@@ -78,17 +78,17 @@ const datos = {
         color: "negro",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
-            texto: "",
+            texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario",
             imagen_perfil : "shellywillis.jpg",
         },  
         {
             nombre_de_usuraio:"nicofacha439",
-            texto: "",
+            texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
             imagen_perfil : "nicolorem.jpg",
         },
         {
             nombre_de_usuraio:"lukolewis",
-            texto: "",
+            texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
             imagen_perfil : "lucaslewis.jpg",
         },
         ],
@@ -100,7 +100,7 @@ const datos = {
         color: "negro",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
-            texto: "",
+            texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
             imagen_perfil : "shellywillis.jpg",
         },  
         {
