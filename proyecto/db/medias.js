@@ -80,17 +80,17 @@ const datos = {
         descripcion:"Medias de algodón suave y transpirable, ideales para el uso diario.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
-            texto: "",
+            texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario",
             imagen_perfil : "shellywillis.jpg",
         },  
         {
             nombre_de_usuraio:"nicofacha439",
-            texto: "",
+            texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
             imagen_perfil : "nicolorem.jpg",
         },
         {
             nombre_de_usuraio:"lukolewis",
-            texto: "",
+            texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
             imagen_perfil : "lucaslewis.jpg",
         },
         ],
@@ -103,7 +103,7 @@ const datos = {
         descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
-            texto: "",
+            texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
             imagen_perfil : "shellywillis.jpg",
         },  
         {
@@ -126,12 +126,12 @@ const datos = {
         descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
-            texto: "",
+            texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
             imagen_perfil : "shellywillis.jpg",
         },  
         {
             nombre_de_usuraio:"nicofacha439",
-            texto: "",
+            texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
             imagen_perfil : "nicolorem.jpg",
         },
         {
