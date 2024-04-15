@@ -2,10 +2,10 @@
 
 const productsController = {
     index: function(req, res) {
-        res.render('product', {title: "Detalle del producto", productos: db.productos});
+        res.render('product'/*,{title: "Detalle del producto", productos: db.productos}*/);
     },
     add: function(req, res) {
-        res.render('product-add', {title: "Añadir un producto", usuario: db.usuario});
+        res.render('product-add'/*, {title: "Añadir un producto", usuario: db.usuario}*/);
     }
 }
 
