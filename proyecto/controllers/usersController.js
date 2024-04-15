@@ -11,8 +11,8 @@ const usersController = {
         res.render('profile')
     
     },
-    userEdit: function(req,res){
-        res.render('user-edit')
+    profileEdit: function(req,res){
+        res.render('profile-edit')
     }
 }
 
