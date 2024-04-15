@@ -1,17 +1,18 @@
-const db = require('../db/index');
+//const db = require('../db/basededatos.sql');
 
 const usersController = {
-    login: function(req, res, next) {
-        res.render('login', {title: "Login"});
+    login:function(req,res){
+        res.render('login')
     },
-    register: function(req, res, next) {
-        res.render('register', {title: "Registrarse"});
+    register: function(req,res){
+        res.render('register')
     },
-    profile: function(req, res, next) {
-        res.render('profile', {title: "Mi perfil", usuario: db.usuario, productos: db.productos});
-    }, 
-    usersEdit: function(req, res, next) {
-        res.render('profile-edit', {title: "Editar perfil", usuario: db.usuario});
+    profile: function(req,res){
+        res.render('profile')
+    
+    },
+    userEdit: function(req,res){
+        res.render('user-edit')
     }
 }
 

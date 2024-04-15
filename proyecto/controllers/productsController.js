@@ -1,12 +1,12 @@
-const db = require('../db/basedatos.sql');
+//const db = require('../db/basedatos.sql');
 
-const productController = {
+const productsController = {
     index: function(req, res) {
         res.render('product', {title: "Detalle del producto", productos: db.productos});
     },
-    create: function(req, res) {
-        res.render('product-add', {title: "Añadir producto", usuario: db.usuario});
+    add: function(req, res) {
+        res.render('product-add', {title: "Añadir un producto", usuario: db.usuario});
     }
 }
 
-module.exports = productController;
+module.exports = productsController;
