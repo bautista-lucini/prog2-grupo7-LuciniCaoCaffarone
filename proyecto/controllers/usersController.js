@@ -1,4 +1,4 @@
-//const db = require('../db/basededatos.sql');
+const db = require('../db/medias.js');
 
 const usersController = {
     login:function(req,res){

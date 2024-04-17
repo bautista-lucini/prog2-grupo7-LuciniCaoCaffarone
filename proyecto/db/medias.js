@@ -1,5 +1,4 @@
 const datos = {
-  
     lista_usuarios:[ {
       nombre: 'Shelly Willis',
         email: 'shellywillis@gmail.com',
@@ -48,11 +47,10 @@ const datos = {
 
   
   ],
- lista_productos: [
-      {
+  lista_productos: [ {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 1",
+        imagen: '/images/foto-productos/1.jpeg',
         color: "negro",
         descripcion: "Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
         comentarios: [{
@@ -74,8 +72,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 2",
+        imagen: '/images/foto-productos/2.jpeg',
         color: "negro",
         descripcion:"Medias de algodón suave y transpirable, ideales para el uso diario.",
         comentarios: [{
@@ -97,8 +95,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 3",
+        imagen: '/images/foto-productos/3.jpeg',
         color: "negro",
         descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno.",
         comentarios: [{
@@ -120,8 +118,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 4",
+        imagen: '/images/foto-productos/4.jpeg',
         color: "negro",
         descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga.",
         comentarios: [{
@@ -143,8 +141,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 5",
+        imagen: '/images/foto-productos/5.jpeg',
         color: "negro",
         descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
         comentarios: [{
@@ -166,8 +164,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 6",
+        imagen: '/images/foto-productos/6.jpeg',
         color: "negro",
         descripcion:"Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
         comentarios: [{
@@ -189,8 +187,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 7",
+        imagen: '/images/foto-productos/7.jpeg',
         color: "negro",
         descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
         comentarios: [{
@@ -212,8 +210,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 8",
+        imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
         descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga",
         comentarios: [{
@@ -235,8 +233,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 9",
+        imagen: '/images/foto-productos/9.jpeg',
         color: "negro",
         descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno",
         comentarios: [{
@@ -258,8 +256,8 @@ const datos = {
       },
       {
         marca: "TM",
-        modelo: "scirocco",
-        anio: 2023,
+        modelo: "Modelo 10",
+        imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
         descripcion: "Medias de algodón suave y transpirable, ideales para el uso diario.",
         comentarios: [{
@@ -283,7 +281,5 @@ const datos = {
     ]
   };
   
-  
- 
 
   module.exports = datos;
