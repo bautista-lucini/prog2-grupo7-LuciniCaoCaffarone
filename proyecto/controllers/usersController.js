@@ -9,10 +9,9 @@ const usersController = {
     },
     profile: function(req,res){
         res.render('profile',{info:db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username})
-    
     },
     profileEdit: function(req,res){
-        res.render('profile-edit')
+        res.render('profile-edit', {info:db, usuarios: db.lista_usuarios})
     }
 }
 
