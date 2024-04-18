@@ -180,7 +180,7 @@ const datos = {
         color: "negro",
         descripcion:"Medias atléticas con amortiguación para mayor comodidad durante el ejercicio.",
         comentarios: [{
-            nombre_de_usuraio:"shellywillis",
+            nombre_de_usuraio:"ChinaUwU68-otakugamer",
             texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
             imagen_perfil : "/images/users/AntoniaCaos.jpeg",
         },  
