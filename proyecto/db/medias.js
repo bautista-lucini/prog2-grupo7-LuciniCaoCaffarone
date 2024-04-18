@@ -32,7 +32,7 @@ const datos = {
 {
   nombre: 'Antonia Caos',
   email: 'AntoniaCaos@gmail.com',
-  usuario: 'ChinaUwU68',
+  usuario: 'ChinaUwU68-otakugamer',
   contraseña: 'contraseña123',
   fechaNacimiento: '1969-06-09', 
   nroDocumento: 42069321,
@@ -60,9 +60,9 @@ const datos = {
         color: "negro",
         descripcion: "Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
         comentarios: [{
-            nombre_de_usuraio:"shellywillis",
-            texto: "Realmente aprecio la calidad de estas medias TM. Perfectas para el día a día.",
-            imagen_perfil : "/images/users/shellywillis.jpg",
+            nombre_de_usuraio:"ChinaUwU68-otakugamer",
+            texto: "Realmente aprecio la calidad de estas medias TM. Perfectas para el día a día. Onichan uWu",
+            imagen_perfil : "/images/users/antoniaCaos.jpeg",
         },  
         {
             nombre_de_usuraio:"nicofacha439",
@@ -156,9 +156,9 @@ const datos = {
         color: "negro",
         descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
         comentarios: [{
-            nombre_de_usuraio:"shellywillis",
+            nombre_de_usuraio:"ChinaUwU68-otakugamer",
             texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario.",
-            imagen_perfil : "/images/users/CaroCurtis.jpeg",
+            imagen_perfil : "/images/users/AntoniaCaos.jpeg",
         },  
         {
             nombre_de_usuraio:"nicofacha439",
