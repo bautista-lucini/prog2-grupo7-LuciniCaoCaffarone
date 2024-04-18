@@ -35,17 +35,18 @@
 				
 					<section class="comments">
                         <% if (productoEncontrado && productoEncontrado.comentarios.length > 0) { %>
-                            <% productoEncontrado.comentarios.forEach(function(comentario) { %>
+                            <% for (let i = 0; i < productoEncontrado.comentarios.length; i++) { %>
+                                <% const comentario = productoEncontrado.comentarios[i]; %>
                                 <article>
                                     <img src="<%= comentario.imagen_perfil %>" alt="">
                                     <div class="data">
                                         <p class="user">
-                                            <strong><a href="/users/profile"><%= comentario.nombre_de_usuario %>:</a></strong>
+                                            <strong><a href="profile.html"><%= comentario.nombre_de_usuraio %>:</a></strong>
                                             <%= comentario.texto %>
                                         </p>
                                     </div>
                                 </article>
-                            <% }); %>
+                            <% } %>
                         <% } else { %>
                             <p>No hay comentarios para este producto.</p>
                         <% } %>
