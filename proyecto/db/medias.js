@@ -6,7 +6,7 @@ const datos = {
         contraseña: 'contraseña123',
         fechaNacimiento: '1996-03-07', 
         nroDocumento: 36783456,
-        fotoPerfil: 'shellywillis',
+        fotoPerfil: '/images/users/shellywillis.jpg',
         id: 1
     },
     {
@@ -16,7 +16,7 @@ const datos = {
       contraseña: 'contraseña123',
       fechaNacimiento: '2000-01-05', 
       nroDocumento: 45544393,
-      fotoPerfil: 'lucaslewis.jpg',
+      fotoPerfil: '/images/users/lucaslewis.jpg',
       id: 2
   },
   {
@@ -26,7 +26,7 @@ const datos = {
     contraseña: 'contraseña123',
     fechaNacimiento: '1998-02-08', 
     nroDocumento: 123456789,
-    fotoPerfil: 'nicolorem.jpg',
+    fotoPerfil: '/images/users/nicolorem.jpg',
     id: 3
 },
 {
@@ -36,7 +36,7 @@ const datos = {
   contraseña: 'contraseña123',
   fechaNacimiento: '1969-06-09', 
   nroDocumento: 42069321,
-  fotoPerfil: 'AntoniaCaos.jpg',
+  fotoPerfil: '/images/users/antoniaCaos.jpeg',
   id: 4
 },
 {
@@ -46,7 +46,7 @@ const datos = {
   contraseña: 'contraseña123',
   fechaNacimiento: '1978-02-04', 
   nroDocumento: 22414126,
-  fotoPerfil: 'CaroCurtis.jpg',
+  fotoPerfil: '/images/users/CaroCurtis.jpeg',
   id: 5
 },
 

@@ -9,15 +9,24 @@
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
+		<% let usuarioEncontrado; %>
+		<% for (let i = 0; i < usuarios.length; i++) { %>
+			<% if (usuarios[i].usuario === username) { %>
+				<% usuarioEncontrado = usuarios[i]; %>
+				<% break; %>
+			<% } %>
+		<% } %>
+
+		<% if (usuarioEncontrado) { %>
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src= "/images/users/<%= info.lista_usuarios[0].fotoPerfil %>.jpg" alt="foto de perfil" class="foto-perfil">
+				<img src= "<%= usuarioEncontrado.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 
 		
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= info.lista_usuarios[0].nombre %>
+					<h1 class="main-title"> <%= usuarioEncontrado.nombre %>
 						<a href="/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -26,7 +35,7 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= info.lista_usuarios[0].email %></li>
+						<li><%= usuarioEncontrado.email %></li>
 						<li>8 productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
@@ -34,6 +43,7 @@
 				</div>
 			</div>
 		</div>
+		<% }  %>
 	</section>
 	<!-- /Datos del usuario -->
 
