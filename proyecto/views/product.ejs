@@ -32,13 +32,34 @@
                     </p>
                 </article>
                 <div class="col-12 col-lg-4">
-                    <!-- comentarios y formulario de comentario -->
-                </div>
+				
+					<section class="comments">
+                        <% if (productoEncontrado && productoEncontrado.comentarios.length > 0) { %>
+                            <% productoEncontrado.comentarios.forEach(function(comentario) { %>
+                                <article>
+                                    <img src="<%= comentario.imagen_perfil %>" alt="">
+                                    <div class="data">
+                                        <p class="user">
+                                            <strong><a href="/users/profile"><%= comentario.nombre_de_usuario %>:</a></strong>
+                                            <%= comentario.texto %>
+                                        </p>
+                                    </div>
+                                </article>
+                            <% }); %>
+                        <% } else { %>
+                            <p>No hay comentarios para este producto.</p>
+                        <% } %>
+                    </section>
+					
+					<form class="form" action="" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					</form>
+					<hr>
+				</div>
             </div>
         </div>
-    <% } else { %>
-        <p>No se encontró el producto.</p>
-    <% } %>
+    <% }  %>
 </div>
 <!-- /product detail -->
 
