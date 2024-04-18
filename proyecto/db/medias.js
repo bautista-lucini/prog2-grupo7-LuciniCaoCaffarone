@@ -6,7 +6,7 @@ const datos = {
         contraseña: 'contraseña123',
         fechaNacimiento: '1996-03-07', 
         nroDocumento: 36783456,
-        fotoPerfil: 'shellywillis.jpg',
+        fotoPerfil: 'shellywillis',
     },
     {
       nombre: 'Lucas Lewis',
