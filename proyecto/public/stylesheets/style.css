@@ -29,7 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: #ffffff;
 }
 
 ul,
@@ -68,7 +68,8 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color:  var(--light-gray);
+  border-bottom: #666666 3px solid;
 }
 
 .main-header_home-link,
@@ -179,7 +180,7 @@ hr {
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: var(--light-gray);
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -263,10 +264,11 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
   padding: 20px 0;
-  margin-top: 80px;
+  margin-top: 30px;
+  background-color: var(--light-gray);
 }
+/*====== Footer ======
 
 .footer-data {
   text-align: center;
@@ -299,7 +301,7 @@ hr {
   color: var(--gray);
   padding: 15px 0;
 }
-
+*/
 
 /*====== Product Detail ======*/
 .product-detail {
@@ -480,6 +482,18 @@ textarea.form-input {
   color: #fff;
 }
 
+/* Extras */
+.logo{
+  height: 60px;
+  width: auto;
+}
+
+.blanco{
+  font-size: 2.4em;
+  font-weight: 400;
+  color:#ddd7d7;
+}
+
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
@@ -532,14 +546,5 @@ textarea.form-input {
     margin: auto;
   }
 
-  .logo{
-    height: 60px;
-    width: auto;
-  }
   
-  .blanco{
-    font-size: 2.4em;
-    font-weight: 400;
-    color:#ddd7d7;
-  }
 }
