@@ -50,6 +50,7 @@ const datos = {
   lista_productos: [ {
         marca: "TM",
         modelo: "Modelo 1",
+        id: "1",
         imagen: '/images/foto-productos/1.jpeg',
         color: "negro",
         descripcion: "Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
@@ -73,6 +74,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 2",
+        id: "2",
         imagen: '/images/foto-productos/2.jpeg',
         color: "negro",
         descripcion:"Medias de algodón suave y transpirable, ideales para el uso diario.",
@@ -96,6 +98,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 3",
+        id: "3",
         imagen: '/images/foto-productos/3.jpeg',
         color: "negro",
         descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno.",
@@ -119,6 +122,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 4",
+        id: "4",
         imagen: '/images/foto-productos/4.jpeg',
         color: "negro",
         descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga.",
@@ -142,6 +146,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 5",
+        id: "5",
         imagen: '/images/foto-productos/5.jpeg',
         color: "negro",
         descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
@@ -165,6 +170,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 6",
+        id: "6",
         imagen: '/images/foto-productos/6.jpeg',
         color: "negro",
         descripcion:"Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
@@ -188,6 +194,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 7",
+        id: "7",
         imagen: '/images/foto-productos/7.jpeg',
         color: "negro",
         descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
@@ -211,6 +218,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 8",
+        id: "8",
         imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
         descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga",
@@ -234,6 +242,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 9",
+        id: "9",
         imagen: '/images/foto-productos/9.jpeg',
         color: "negro",
         descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno",
@@ -257,6 +266,7 @@ const datos = {
       {
         marca: "TM",
         modelo: "Modelo 10",
+        id: "10",
         imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
         descripcion: "Medias de algodón suave y transpirable, ideales para el uso diario.",

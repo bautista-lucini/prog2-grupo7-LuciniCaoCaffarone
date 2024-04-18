@@ -8,5 +8,4 @@ const productsController = {
         res.render('product-add', {title: "Añadir un producto", usuario: db.usuario});
     }
 }
-
 module.exports = productsController;
