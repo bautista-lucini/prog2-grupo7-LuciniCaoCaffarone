@@ -2,29 +2,32 @@ const datos = {
     lista_usuarios:[ {
       nombre: 'Shelly Willis',
         email: 'shellywillis@gmail.com',
-        usuario: 'ShellyWILLIS23',
+        usuario: 'shellywillis',
         contraseña: 'contraseña123',
         fechaNacimiento: '1996-03-07', 
         nroDocumento: 36783456,
         fotoPerfil: 'shellywillis',
+        id: 1
     },
     {
       nombre: 'Lucas Lewis',
       email: 'lucaslewis21@gmail.com',
-      usuario: 'LuCaLeWis2021',
+      usuario: 'lukolewis',
       contraseña: 'contraseña123',
       fechaNacimiento: '2000-01-05', 
       nroDocumento: 45544393,
       fotoPerfil: 'lucaslewis.jpg',
+      id: 2
   },
   {
     nombre: 'Nicolas Lorem',
     email: 'NicolasLorem@gmail.com',
-    usuario: 'NicoLoreXD',
+    usuario: 'nicofacha439',
     contraseña: 'contraseña123',
     fechaNacimiento: '1998-02-08', 
     nroDocumento: 123456789,
     fotoPerfil: 'nicolorem.jpg',
+    id: 3
 },
 {
   nombre: 'Antonia Caos',
@@ -34,6 +37,7 @@ const datos = {
   fechaNacimiento: '1969-06-09', 
   nroDocumento: 42069321,
   fotoPerfil: 'AntoniaCaos.jpg',
+  id: 4
 },
 {
   nombre: 'Carolina Curtis',
@@ -43,6 +47,7 @@ const datos = {
   fechaNacimiento: '1978-02-04', 
   nroDocumento: 22414126,
   fotoPerfil: 'CaroCurtis.jpg',
+  id: 5
 },
 
   

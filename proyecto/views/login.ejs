@@ -3,65 +3,8 @@
 <!-- Include Head -->
 <%- include("./partials/head") %>
 <body>
-	<!-- Header -->
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-5 col-md-2">
-					<a href="index.ejs" class="main-header_home-link">
-						<img src="./images/logo-mercado-liebre.svg">
-					</a>
-				</div>
-	
-				<div class="col-7 col-md-6">
-					<form action="search-results.ejs" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
-							class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
-				</div>
-			</div>
-	
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="index.ejs">Todos los productos</a></li>
-					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
-				</ul>
-	
-				<ul class="right-navbar">
-					<!-- Solo logueado <li><a href="profile.html">
-								Nombre del usuario <i class="fas fa-user"></i>
-							</a>
-						</li>
-						<li>
-							<form action="" method="post">
-								<button class="logout" type="submit">
-									Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
-						</li> -->
-					<li>
-						<a href="register.ejs">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="login.ejs">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<!-- Include Header -->
+	<%- include("./partials/header") %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -71,7 +14,7 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <form action="/login" method="GET">
+			<h2 class="col-12"> <form action="/profile" method="GET">
 				<label for="usuario">Usuario:</label>
 				<input type="email" id="usuario" name="usuario" required>
 				<label for="contraseña">Contraseña:</label>
@@ -81,8 +24,9 @@
 				<button type="submit">Iniciar sesión</button>
 			</form>
 			</h2>
+		</div>
+	</div>
 
-			
 <%- include("./partials/footer") %>
 	
 </body>
