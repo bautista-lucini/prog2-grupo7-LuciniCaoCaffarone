@@ -173,7 +173,7 @@ const datos = {
         id: "6",
         imagen: '/images/foto-productos/6.jpeg',
         color: "negro",
-        descripcion:"Medias elegantes de diseño argyle, perfectas para el trabajo o eventos formales.",
+        descripcion:"Medias atléticas con amortiguación para mayor comodidad durante el ejercicio.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
@@ -197,7 +197,7 @@ const datos = {
         id: "7",
         imagen: '/images/foto-productos/7.jpeg',
         color: "negro",
-        descripcion:"Medias ecológicas hechas de bambú, suaves y resistentes al olor.",
+        descripcion:"Medias de lana merino para senderismo, mantienen los pies secos y calientes.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "Las mejores medias para uso diario. Ni muy gruesas ni muy delgadas, justo lo necesario.",
@@ -221,7 +221,7 @@ const datos = {
         id: "8",
         imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
-        descripcion:"Medias de compresión para correr, mejoran la circulación y reducen la fatiga",
+        descripcion:"Calcetines invisibles ideales para usar con zapatillas deportivas.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "TM ha hecho un gran trabajo con estas medias térmicas. Mantienen mis pies calientes incluso en los días más fríos.",
@@ -245,7 +245,7 @@ const datos = {
         id: "9",
         imagen: '/images/foto-productos/9.jpeg',
         color: "negro",
-        descripcion:"Medias térmicas diseñadas para mantener los pies calientes en invierno",
+        descripcion:"Medias estampadas con diversos diseños para un toque de estilo.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "Realmente aprecio la calidad de estas medias TM. Perfectas para el día a día.",
@@ -269,7 +269,7 @@ const datos = {
         id: "10",
         imagen: '/images/foto-productos/8.jpeg',
         color: "negro",
-        descripcion: "Medias de algodón suave y transpirable, ideales para el uso diario.",
+        descripcion: "Medias especiales para diabéticos, sin costuras para evitar rozaduras.",
         comentarios: [{
             nombre_de_usuraio:"shellywillis",
             texto: "¡Estas medias de TM son increíblemente cómodas y duraderas! Me encanta cómo se sienten.",
