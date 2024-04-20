@@ -33,13 +33,21 @@
 				<li><a href="/products/add">Cargar productos</a></li>
 			</ul>
 
+			<% let usuarioEncontrado; %>
+		<% for (let i = 0; i < usuarios.length; i++) { %>
+			<% if (usuarios[i].usuario === username) { %>
+				<% usuarioEncontrado = usuarios[i]; %>
+				<% break; %>
+			<% } %>
+		<% } %>
+
 			<ul class="right-navbar">
-				<li><a href="/users/profile/<%= usuarios.usuario %>">
-						<%= info.lista_usuarios[0].nombre %> <i class="fas fa-user"></i>
+				<li><a href="/users/profile/<%= usuarioEncontrado.usuario %>">
+						<%= usuarioEncontrado.nombre %> <i class="fas fa-user"></i>
 					</a>
 				</li>
 				<li>
-					<form action="/" method="post">
+					<form action="" method="post">
 						<button class="logout" type="submit">
 							Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 						</button>
