@@ -1,5 +1,16 @@
-const db = require('../db/medias.js');
+const db = require('../database/models');
 
+//let indexController = {
+   // index: function(req, res){}
+      //  db.Movie.findAll()
+       // .then(function (data){
+        //   return res.send(data)
+       // })
+       // .catch(function(error){
+     //       console.log(error);
+       // })
+       
+    // info para poder hacer controladores con sequelice 
 const productsController = {
     index: function(req, res) {
         res.render('product',{title: "Detalle del producto", productos: db.lista_productos,  productId: req.params.id});
