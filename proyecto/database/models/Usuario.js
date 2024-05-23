@@ -7,29 +7,29 @@ module.exports = function(sequelize,dataTypes){
             autoIncrement: true,
             primaryKey: true,
             notNull : true,
-            type: dataTypes.INTEGER.UNSIGNAL,
+            type: dataTypes.INTEGER.UNSIGNED,
         },
         nombre:{
             notNull : true,
             type: dataTypes.STRING,
-            
+
         },
         usuario:{
             notNull : true,
             type: dataTypes.STRING,
-            
+
             
         },
         email:{
             notNull : true,
             type: dataTypes.STRING,
-            
+
             
         },
         contraseña:{
             notNull : true,
             type: dataTypes.STRING,
-            
+
             
         },
         fecha:{
@@ -65,7 +65,7 @@ module.exports = function(sequelize,dataTypes){
     let config =  { 
         tableName: "usuarios",
         timestamps: true, 
-        underscored: true
+        underscored: false,
     }
     
     
