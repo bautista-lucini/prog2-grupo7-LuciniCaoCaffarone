@@ -31,13 +31,31 @@ module.exports = function(sequelize,dataTypes){
     
     
     let config =  { 
-        tableName: "comentqrio",
+        tableName: "comentario",
         timestamps: true, 
         underscored: true
     }
     
     
     let Comentario = sequelize.define(alias, cols, config)
+    Comentario.associate = function(models){
+        Comentario.belongsTo(models.Usuario, {
+            as: "comentador",
+            foreignKey: "usuario_id"
+        })
+        Comentario.belongsTo(models.Producto, {
+            as: "producto", //nombre relacion comentario y producto
+            foreignKey: "productos_id"
+        })
+
+
+
+
+
+    }
+
+
+
     return Comentario
      
     }
