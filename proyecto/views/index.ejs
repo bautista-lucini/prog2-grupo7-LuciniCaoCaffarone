@@ -26,11 +26,12 @@
 					<section class="product-box">
 						<a href="/products/<%= productos[i].id %>">
 							<figure class="product-box_image">
-								<img src="<%= productos[i].imagen %>" alt="producto">
+								<img src="<%= productos[i].imagen_producto %>" alt="producto">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= productos[i].modelo %></h2>
-								<p><%= productos[i].descripcion %></p>
+								<h2><%= productos[i].nombre_producto %></h2>
+								<p><%= productos[i].descripcion_producto %></p>
+								<a href="/users/profile/<%= productos[i].duenio.id %>">Usuario: <%= productos[i].duenio.nombre %></a>
 							 	
 							</article>
 						</a>
@@ -48,17 +49,18 @@
 			<h2 class="products-title">Más comentados</h2>
 		</div>
 		<!-- Show the "ultimos" products -->
-		<% for(let i = 4; i < 8; i++) { %>
+		<% for(let i = 4; i < 8 ; i++) { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products/<%= productos[i].id%>">
+					<a href="/products/<%= productos[i].id %>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].imagen %>" alt="producto">
+							<img src="<%= productos[i].imagen_producto %>" alt="producto">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= productos[i].modelo %></h2>
-							<p><%= productos[i].descripcion %></p>
-							
+							<h2><%= productos[i].nombre_producto %></h2>
+							<p><%= productos[i].descripcion_producto %></p>
+							<a href="/users/profile/<%= productos[i].duenio.id %>">Usuario: <%= productos[i].duenio.nombre %></a>
+							 
 						</article>
 					</a>
 				</section>

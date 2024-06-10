@@ -11,6 +11,9 @@ module.exports = function(sequelize,dataTypes){
         usuario_id:{
             type: dataTypes.INTEGER,
         },
+        nombre_producto:{
+            type: dataTypes.STRING,
+        },
         imagen_producto:{
             type: dataTypes.STRING,
         },
@@ -19,9 +22,11 @@ module.exports = function(sequelize,dataTypes){
         },
         createdAt:{
             type: dataTypes.DATE,
+            notNull: true,
         },
         updatedAt:{
             type: dataTypes.DATE,
+            notNull: true,
         },
         deletedAt:{
             type: dataTypes.DATE,
@@ -33,11 +38,24 @@ module.exports = function(sequelize,dataTypes){
     let config =  { 
         tableName: "productos",
         timestamps: true, 
-        underscored: true
+        underscored: false,
     }
     
     
     let Producto = sequelize.define(alias, cols, config)
+    Producto.associate = function(models){
+        Producto.belongsTo(models.Usuario, {
+            as: "duenio", 
+            foreignKey: "usuario_id"
+        })
+
+        Producto.hasMany(models.Comentario, {
+            as: "comentarios",
+            foreignKey: "id",
+        })
+    }
+
+
     return Producto
     
     }

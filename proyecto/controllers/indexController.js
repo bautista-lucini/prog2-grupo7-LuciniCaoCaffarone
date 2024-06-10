@@ -1,3 +1,4 @@
+const { Association } = require('sequelize');
 const db = require('../database/models');
 
 //let indexController = {
@@ -14,7 +15,16 @@ const db = require('../database/models');
 
 const indexController = {
     index: function(req, res) {
-        res.render('index', {"productos": db.lista_productos});
+        db.Producto.findAll({
+            include: [{association: "duenio"}],
+            order: [["createdAt","DESC"]],
+            limit: 8, 
+        })
+        .then(function(result){
+            //return res.send(result)
+            res.render('index', {"productos": result});
+        })
+        
     },
     search: function(req, res) {
         res.render('search-results', {title: "Resultados de búsqueda", productos: db.productos});
