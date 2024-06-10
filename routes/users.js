@@ -15,18 +15,22 @@ let validations = [
            return db.User.findOne({
              where: { email: value }, 
            })
-               .then(function(user){
-                  if(user){
+               .then(function(usuario){
+                  if(usuario){
                    throw new Error('El email ingresado ya existe.');
-    }
+                  }
                })
     }),
     body('password')
-    .notEmpty().withMessage('Debes completar la contraseña').bail()
-    .isLength({ min: 8 }).withMessage('La contraseña debe ser más larga')
-    ]
-    
-
+        .notEmpty().withMessage('Debes completar la contraseña').bail()
+        .isLength({ min: 4 }).withMessage('La contraseña debe contener al menos 4 caracteres'),
+    body('fechaNacimiento')
+        .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD').bail(),
+    body("nroDocumento")
+       .isNumeric().withMessage("Este campo debe ser completado solo con números").bail(),
+    body('ftoPerfil')
+]
+  
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
