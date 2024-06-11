@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+<body>
+	<!-- Include Header -->
+	<%- include("./partials/header") %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Registrate</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12">   
+                <form method="POST" action="/users/register">
+                <label for="email">Email:</label><br><br>
+                <input type="email" id="email" name="email" required ><br> <br>
+                <% if (locals.errors && errors.email) { %>
+                    <p class="feedback"><%= errors.email.msg %></p>
+                <% } %>           
+                <label for="usuario" class="padding">Usuario:</label><br><br>
+                <input type="text" id="usuario" name="usuario" required><br><br>
+                <% if (locals.errors && errors.usuario) { %>
+                    <p class="feedback"><%= errors.usuario.msg %></p>
+                <% } %>           
+                <label for="contraseña">Contraseña:</label><br><br>
+                <input type="password" id="contraseña" name="contraseña" required><br><br>
+                <% if (locals.errors && errors.contraseña) { %>
+                    <p class="feedback"><%= errors.contraseña.msg %></p>
+                <% } %>           
+                <label for="fechaNacimiento">Fecha de nacimiento:</label><br><br>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+                <% if (locals.errors && errors.fechaNacimiento) { %>
+                    <p class="feedback"><%= errors.fechaNacimiento.msg %></p>
+                <% } %>           
+                <label for="nroDocumento">Número de documento:</label><br><br>
+                <input type="number" id="nroDocumento" name="nroDocumento" required><br><br>
+                <% if (locals.errors && errors.nroDocumento) { %>
+                    <p class="feedback"><%= errors.nroDocumento.msg %></p>
+                <% } %>           
+                <label for="fotoPerfil">Foto de perfil:</label><br><br>
+                <input type="text" id="fotoPerfil" name="fotoPerfil" required><br><br>
+                <% if (locals.errors && errors.fotoPerfil) { %>
+                    <p class="feedback"><%= errors.fotoPerfil.msg %></p>
+                <% } %>
+           
+             <button type="submit">Registrarse</button>
+            </form>
+			</h2>
+        </div>
+	</div>
+
+
+<%- include("./partials/footer") %>
+</body>
+
+</html>
