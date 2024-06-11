@@ -15,10 +15,10 @@ const usersController = {
     store: function(req,res){
         let formulario = req.body;
         let user = {
+            name: formulario.name,
             email: formulario.email,
             usuario: formulario.usuario,
             contraseña: bcrypt.hashSync(formulario.contraseña, 10),
-            //contraseña: formulario.contraseña,
             fecha: formulario.birthday,
             dni: formulario.dni, 
             foto_perfil: formulario.profilePic,

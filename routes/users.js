@@ -5,6 +5,8 @@ const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
 
 let registerValidations = [
+    body("name")
+      .notEmpty().bail(),
     body('email')
       .notEmpty() 
       .isEmail()
