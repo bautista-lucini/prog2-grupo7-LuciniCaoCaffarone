@@ -30,7 +30,7 @@ let registerValidations = [
         .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD').bail(),
     body("nroDocumento")
        .isNumeric().withMessage("Este campo debe ser completado solo con números").bail(),
-    body('ftoPerfil')
+    body('fotoPerfil')
 ]
 
 /* GET users listing. */

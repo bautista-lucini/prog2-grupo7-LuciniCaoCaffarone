@@ -15,13 +15,13 @@ const usersController = {
     store: function(req,res){
         let formulario = req.body;
         let user = {
-            name: formulario.name,
+            nombre: formulario.name,
             email: formulario.email,
             usuario: formulario.usuario,
             contraseña: bcrypt.hashSync(formulario.contraseña, 10),
-            fecha: formulario.birthday,
-            dni: formulario.dni, 
-            foto_perfil: formulario.profilePic,
+            fecha: formulario.fechaNacimiento,
+            dni: formulario.nroDocumento, 
+            foto_perfil: formulario.fotoPerfil,
             createdAt: new Date()
         }
         let errors = validationResult(req);
