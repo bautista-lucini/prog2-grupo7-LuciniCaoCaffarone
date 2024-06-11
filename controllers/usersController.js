@@ -10,15 +10,15 @@ const usersController = {
         res.render('login');
     },
     register: function(req, res) {
+        return res.render ('register')
+    },
+    store: function(req,){
         let formulario = req.body;
-        
-        console.log(formulario)
-        //let passEncriptada = bcrypt.hashSync(formulario.contraseña, 10);
         let user = {
             email: formulario.email,
             usuario: formulario.usuario,
-            //contraseña: passEncriptada,
-            contraseña: formulario.contraseña,
+            contraseña: bcrypt.hashSync(formulario.contraseña, 10),
+            //contraseña: formulario.contraseña,
             fecha: formulario.birthday,
             dni: formulario.dni, 
             foto_perfil: formulario.profilePic,

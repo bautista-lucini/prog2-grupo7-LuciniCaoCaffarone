@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 let registerValidations = [
     body('email')
