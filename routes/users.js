@@ -42,6 +42,8 @@ router.get('/register', usersController.register);
 router.post('/store', registerValidations, usersController.store);
 
 router.get('/login', usersController.login);
+router.post('/postLogin', usersController.postLogin);
+
 router.get('/edit/:username', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
 
