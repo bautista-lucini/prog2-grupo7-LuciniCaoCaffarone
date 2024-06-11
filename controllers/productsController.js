@@ -12,6 +12,40 @@ const db = require('../database/models');
        
     // info para poder hacer controladores con sequelice 
 const productsController = {
+
+     //chequear desde esta linea hasta la 53
+
+     
+    products : function (req,res) {
+        let idMedia = req.params.id;
+
+        let filtrado = {
+          include: [
+            {association: "duenio"},
+            {association: "comentarios"}
+          ]
+        }
+
+    
+
+    db.Producto.findByPk(idMedia, filtrado)
+    .then(function(result) {
+              //return res.render("detalleMovies", {movie: result})
+              return res.send(result)
+      })
+      .catch(function(error) {
+        return console.log(error);;
+    });
+
+
+
+    
+   
+
+   
+  },
+
+
     index: function(req, res) {
         res.render('product',{title: "Detalle del producto", productos: db.lista_productos,  productId: req.params.id});
     },
