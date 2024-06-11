@@ -19,6 +19,4 @@ const productsController = {
         res.render('product-add', {info:db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username });
     }
 }
-
-
 module.exports = productsController;
