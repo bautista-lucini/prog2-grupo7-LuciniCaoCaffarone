@@ -9,7 +9,7 @@ let registerValidations = [
       .notEmpty() 
       .isEmail()
       .custom(function(value){ 
-           return db.User.findOne({
+           return db.Usuario.findOne({
              where: { email: value }, 
            })
                .then(function(usuario){
