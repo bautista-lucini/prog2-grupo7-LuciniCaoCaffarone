@@ -1,7 +1,7 @@
 const datos = require('../database/models/index')
 const db = require('../database/models');
-const usuarios = db.Usuario
-const productos = db.Producto
+const usuarios = db.Usuario;
+const productos = db.Producto;
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 

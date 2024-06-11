@@ -1,9 +1,7 @@
 const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 
 module.exports = function(sequelize,dataTypes){
-
     let alias = "Usuario";
-    
     let cols = {
         id:{
             autoIncrement: true,
@@ -18,21 +16,15 @@ module.exports = function(sequelize,dataTypes){
         },
         usuario:{
             notNull : true,
-            type: dataTypes.STRING,
-
-            
+            type: dataTypes.STRING,    
         },
         email:{
             notNull : true,
-            type: dataTypes.STRING,
-
-            
+            type: dataTypes.STRING,    
         },
         contraseña:{
             notNull : true,
-            type: dataTypes.STRING,
-
-            
+            type: dataTypes.STRING,  
         },
         fecha:{
             notNull : true,
@@ -44,10 +36,8 @@ module.exports = function(sequelize,dataTypes){
         }, 
         foto_perfil:{
             notNull : true,
-            type: dataTypes.STRING,
-            
+            type: dataTypes.STRING,      
         },
-    
         createdAt:{
             notNull : true,
             type: dataTypes.DATE,
@@ -61,36 +51,22 @@ module.exports = function(sequelize,dataTypes){
             type: dataTypes.DATE,
         },
     }
-    
-    
-    
     let config =  { 
         tableName: "usuarios",
         timestamps: true, 
         underscored: false,
-    }
-    
-    
+    } 
     let Usuario = sequelize.define(alias,cols,config);
     Usuario.associate = function(models){
         Usuario.hasMany(models.Producto, {
-            as: "medias", //nombre de la relacion
+            as: "medias", 
             foreignKey: "id",
-
         })
-
         Usuario.hasMany(models.Comentario,{
             as: "comentarios",
             foreignKey: "id",
-
-
         })
-
-
     }
-
-
-
     return Usuario
     
     }
