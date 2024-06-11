@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const db = require('../database/models');
 const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
-const bcrypt = require('bcryptjs');
 
 let registerValidations = [
     body('email')
@@ -36,7 +36,9 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/register', registerValidations, usersController.register);
+router.get('/register', usersController.register);
+router.post('/store', registerValidations, usersController.store);
+
 router.get('/login', usersController.login);
 router.get('/edit/:username', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);

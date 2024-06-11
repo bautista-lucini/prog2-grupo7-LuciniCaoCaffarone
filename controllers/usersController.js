@@ -12,7 +12,7 @@ const usersController = {
     register: function(req, res) {
         return res.render ('register')
     },
-    store: function(req,){
+    store: function(req,res){
         let formulario = req.body;
         let user = {
             email: formulario.email,
@@ -28,10 +28,10 @@ const usersController = {
         if (errors.isEmpty()){
             db.Usuario.create(user)
             .then(function(result){
-                return res.redirect('/profile/' + usuario.id)
+                res.redirect('/users/profile/' + result.id)
             })
         } else {
-            return res.render('register', {errors: errors.mapped(), old: req.body})
+            res.render('register', {errors: errors.mapped(), old: req.body})
         }
     },
     profile: function(req, res) {
