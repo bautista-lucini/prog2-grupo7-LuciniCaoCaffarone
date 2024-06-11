@@ -2,6 +2,7 @@ const datos = require('../database/models/index')
 const db = require('../database/models');
 const usuarios = db.Usuario
 const productos = db.Producto
+const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 
 const usersController = {
@@ -9,28 +10,28 @@ const usersController = {
         res.render('login');
     },
     register: function(req, res) {
+        let formulario = req.body;
+        
+        console.log(formulario)
+        //let passEncriptada = bcrypt.hashSync(formulario.contraseña, 10);
+        let user = {
+            email: formulario.email,
+            usuario: formulario.usuario,
+            //contraseña: passEncriptada,
+            contraseña: formulario.contraseña,
+            fecha: formulario.birthday,
+            dni: formulario.dni, 
+            foto_perfil: formulario.profilePic,
+            createdAt: new Date()
+        }
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
-           
-            let { nombre, email, password } = req.body;
-            usuarios.create({
-                nombre: nombre,
-                email: email,
-                password: password // encriptar la contraseña antes de guardarla
+        if (errors.isEmpty()){
+            db.Usuario.create(user)
+            .then(function(result){
+                return res.redirect('/profile/' + usuario.id)
             })
-            .then(usuario => {
-                res.redirect('/profile/' + usuario.id);
-            })
-            .catch(error => {
-                res.render('register', {
-                    errors: { database: { msg: 'Error al crear el usuario. Inténtalo de nuevo.' } },
-                    old: req.body
-                });
-            });
-
         } else {
-            // Si hay errores, volvemos al formulario con los mensajes y los datos ingresados
-            res.render('register', { errors: errors.mapped(), old: req.body });
+            return res.render('register', {errors: errors.mapped(), old: req.body})
         }
     },
     profile: function(req, res) {
@@ -57,6 +58,5 @@ const usersController = {
         res.render('profile-edit', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username });
     }
 };
-
 
 module.exports = usersController;
