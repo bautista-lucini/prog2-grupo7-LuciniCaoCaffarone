@@ -3,6 +3,33 @@ var router = express.Router();
 const db = require('../database/models');
 const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
+//
+let loginValidations = [
+  body("usuario")
+    .notEmpty().withMessage("Debe ingresar el nombre de usuario").bail()
+    .custom(function(value){ 
+      return db.Usuario.findOne({
+        where: {usuario: value}, 
+      })
+          .then(function(user){
+             if(user == undefined){
+              throw new Error("El nombre de usuario ingresado no existe.");
+             }
+          })
+    }),
+  body("contraseña")
+    .notEmpty().withMessage("Debe ingresar una contraseña").bail()
+    .custom(function(value){ 
+      return db.Usuario.findOne({
+        where: {contraseña: value}, 
+      })
+          .then(function(user){
+             if(user == undefined){
+              throw new Error("El nombre de usuario ingresado no existe.");
+             }
+          })
+    }),
+]//
 
 let registerValidations = [
     body("name")
