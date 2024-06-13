@@ -26,6 +26,12 @@ app.use(express.json());
 app.use(session( { secret: "Mi mensaje secreto",
   resave: false,
   saveUninitialized: true }));
+app.use(function(req, res, next) {
+	if (req.session.usuarioLogueado != undefined) {
+		res.locals.user = req.session.usuarioLogueado	
+     }
+return next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

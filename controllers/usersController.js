@@ -9,25 +9,15 @@ const usersController = {
     login: function(req, res) {
         res.render('login');
     },
-    //
-    postLogin: function(req,res) {
-        const {usuario, contraseña} = req.body;
-        db.Usuario.findOne({
-            where: {usuario: usuario} 
-        }).then(function(user) {
-            if (!user) {
-                return res.render('login', { error: "El usuario no existe." });
-            }
-            const contraseñaValida = bcrypt.compareSync(contraseña, user.contraseña);
-            if (!contraseñaValida) {
-                return res.render('login', { error: "Contraseña incorrecta." });
-            }
-            // ok para entrar
-            req.session.userId = user.id;
-            res.redirect('/users/profile/' + user.id);
-        })
+    postLogin: function(req, res) {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()){
+            res.render('login', {errors: errors.mapped(), old: req.body})
+        }
+        else {
+            res.redirect('/users/profile/' + req.session.userId);
+        }
     },
-    //
     register: function(req, res) {
         return res.render ('register')
     },

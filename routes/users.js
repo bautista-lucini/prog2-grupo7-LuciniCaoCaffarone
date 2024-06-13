@@ -3,17 +3,16 @@ var router = express.Router();
 const db = require('../database/models');
 const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
-//
+
 let loginValidations = [
-  body("usuario")
-    .notEmpty().withMessage("Debe ingresar el nombre de usuario").bail()
+  body("email")
+    .notEmpty().withMessage("Debe ingresar una dirección de correo.").bail()
     .custom(function(value){ 
       return db.Usuario.findOne({
-        where: {usuario: value}, 
-      })
+        where: {email: value} })
           .then(function(user){
              if(user == undefined){
-              throw new Error("El nombre de usuario ingresado no existe.");
+              throw new Error("El email ingresado no existe.");
              }
           })
     }),
@@ -21,15 +20,27 @@ let loginValidations = [
     .notEmpty().withMessage("Debe ingresar una contraseña").bail()
     .custom(function(value){ 
       return db.Usuario.findOne({
-        where: {contraseña: value}, 
+        where: {email: email} 
+      }).then(function(user) {
+        if (!user) {
+            //return res.render('login', { error: "Ingrese un email válido" });
+            req.session.error = "Ingrese un email válido.";
+            throw new Error("Validation failed");
+            
+        }
+        const contraseñaValida = bcrypt.compareSync(value, user.contraseña);
+        if (!contraseñaValida) {
+          req.session.error = "Contraseña incorrecta.";
+          throw new Error("Validation failed");
+            //return res.render('login', { error: "Contraseña incorrecta." });
+            //throw new Error("Contraseña incorrecta.");
+        }
+        else{
+            req.session.userId = user.id;
+        }
       })
-          .then(function(user){
-             if(user == undefined){
-              throw new Error("El nombre de usuario ingresado no existe.");
-             }
-          })
-    }),
-]//
+    })
+]
 
 let registerValidations = [
     body("name")
@@ -69,7 +80,7 @@ router.get('/register', usersController.register);
 router.post('/store', registerValidations, usersController.store);
 
 router.get('/login', usersController.login);
-router.post('/postLogin', usersController.postLogin);
+router.post('/login', loginValidations, usersController.postLogin);
 
 router.get('/edit/:username', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
