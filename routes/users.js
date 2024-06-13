@@ -3,41 +3,39 @@ var router = express.Router();
 const db = require('../database/models');
 const usersController = require('../controllers/usersController.js');
 const { body } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 let loginValidations = [
   body("email")
     .notEmpty().withMessage("Debe ingresar una dirección de correo.").bail()
-    .custom(function(value){ 
+    .custom(function(value,{req}){ 
       return db.Usuario.findOne({
         where: {email: value} })
           .then(function(user){
-             if(user == undefined){
+            if(!user){
               throw new Error("El email ingresado no existe.");
              }
+            req.user = user;
           })
     }),
   body("contraseña")
     .notEmpty().withMessage("Debe ingresar una contraseña").bail()
-    .custom(function(value){ 
+    .custom(function(value,{req}) { 
       return db.Usuario.findOne({
-        where: {email: email} 
+        where: {email: req.body.email} 
       }).then(function(user) {
         if (!user) {
-            //return res.render('login', { error: "Ingrese un email válido" });
             req.session.error = "Ingrese un email válido.";
-            throw new Error("Validation failed");
-            
+            throw new Error("Error en la validación");
         }
         const contraseñaValida = bcrypt.compareSync(value, user.contraseña);
         if (!contraseñaValida) {
           req.session.error = "Contraseña incorrecta.";
-          throw new Error("Validation failed");
+          throw new Error("Error en la validación");
             //return res.render('login', { error: "Contraseña incorrecta." });
             //throw new Error("Contraseña incorrecta.");
         }
-        else{
-            req.session.userId = user.id;
-        }
+        req.session.userId = user.id;
       })
     })
 ]

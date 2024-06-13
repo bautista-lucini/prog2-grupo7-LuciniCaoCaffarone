@@ -15,6 +15,7 @@ const usersController = {
             res.render('login', {errors: errors.mapped(), old: req.body})
         }
         else {
+            //req.session.userId = req.user.id;
             res.redirect('/users/profile/' + req.session.userId);
         }
     },
