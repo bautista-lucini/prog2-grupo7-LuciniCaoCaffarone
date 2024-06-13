@@ -35,29 +35,29 @@ app.use(function(req, res, next) {
 return next();
 });
 // cambiar 
-app.use(function(req, res, next) {
-  if (req.cookies.userId && !req.session.userId) {
-      db.Usuario.findOne({
-          where: { id: req.cookies.userId }
-      })
-      .then(function(user) {
-          if (user) {
-              req.session.userId = user.id;
-              res.locals.user = user;
-          }
-          next();
-      })
-  } else {
-      if (req.session.userId) {
-          db.Usuario.findOne({
-              where: { id: req.session.userId }
-          })
-          .then(function(user) {
-              res.locals.user = user;  
-          })
-      } 
-  }
-});
+//app.use(function(req, res, next) {
+  //if (req.cookies.userId && !req.session.userId) {
+    //  db.Usuario.findOne({
+      //    where: { id: req.cookies.userId }
+      //})
+      //.then(function(user) {
+       //   if (user) {
+         //     req.session.userId = user.id;
+           //   res.locals.user = user;
+          //}
+          //next();
+      //})
+  //} else {
+    //  if (req.session.userId) {
+      //    db.Usuario.findOne({
+        //      where: { id: req.session.userId }
+          //})
+          //.then(function(user) {
+            //  res.locals.user = user;  
+          //})
+      //} 
+  //}
+//});
 //
 
 app.use('/', indexRouter);

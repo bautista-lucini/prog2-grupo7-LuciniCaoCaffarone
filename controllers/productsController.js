@@ -1,5 +1,5 @@
 const db = require('../database/models');
-
+const operadores = db.Sequelize.Op
 //let indexController = {
 // index: function(req, res){}
 //  db.Movie.findAll()
@@ -55,12 +55,17 @@ const productsController = {
    //return res.send(querys)
 
     let filtrado = {
-      where: [{nombre_producto: querys}]
+      where:{[operadores.or]: [{nombre_producto:{[operadores.like]:"%"+ querys + "%"}},{descripcion_producto: {[operadores.like]: "%" +querys + "%"}}]},
+      include: [{association:'duenio'}],
+      order: [["createdAt","DESC"]]
+      
+      //agregar los include
     }
 
-    db.Producto.findOne(filtrado)
+    db.Producto.findAll(filtrado)
     .then(function(result) {
-      return res.send(result);
+      //return res.send(result);
+      res.render('search-results',{data:result})
     }).catch(function(error) {
       return console.log(error);;
     });

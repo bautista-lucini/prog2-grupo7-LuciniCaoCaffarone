@@ -49,23 +49,20 @@ const usersController = {
     },
     profile: function(req, res) {
         let id = req.params.id;
-        let data = {
-            usuario: null,
-            productos: null,
-        };
-        usuarios.findByPk(id)
-            .then((usuario) => {
-                data.usuario = usuario;
-                return productos.findAll({ where: { usuario_id: id } });
-            })
-            .then((producto) => {
-                data.productos = producto;
-                res.render('profile', { info: data });
-            })
-            .catch((error) => {
-                // Manejar el error, por ejemplo, renderizar una vista de error o enviar un mensaje
-                res.status(500).send(error.message);
-            });
+        let criterio = {
+            include: [
+                {association: "medias"},
+                {association: "comentarios"},
+                
+            ],
+            order: [["createdAt","DESC"]],
+        }
+        usuarios.findByPk(id,criterio)
+          .then(function(usuario){
+            //return res.send(usuario)
+            res.render("profile",{info:usuario})
+
+          })
     },
     profileEdit: function(req, res) {
         res.render('profile-edit', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username });

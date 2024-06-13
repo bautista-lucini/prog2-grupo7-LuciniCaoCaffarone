@@ -13,14 +13,33 @@
 	
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda:</h2>
-			</div>
+			
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+			 <% if (data.length > 0){ %>
+				<div class="col-12">
+					<h2 class="products-title">Resultados de búsqueda:</h2>
+				</div>
+			<% for(let i = 0; i < data.length ; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/<%= data[i].id %>">
+							<figure class="product-box_image">
+								<img src="/<%= data[i].imagen_producto %>" alt="producto">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= data[i].nombre_producto %></h2>
+								<p><%= data[i].descripcion_producto %></p>
+								<a href="/users/profile/<%= data[i].duenio.id %>">Usuario: <%= data[i].duenio.nombre %></a>
+							 	
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
+		<% } else{ %>
+			<h2 class="products-title">No se han encontrado resultado de busqueda</h2>
+		<% } %>
+		
 		</div>
 	</div>	
 <%- include("./partials/footer") %>

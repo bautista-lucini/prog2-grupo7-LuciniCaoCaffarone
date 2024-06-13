@@ -14,14 +14,14 @@
 		
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src= "<%= info.usuario.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+				<img src= "/images/users/<%= info.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 
 		
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= info.usuario.nombre %>
-						<a href="/users/edit/<%= info.usuario.id %>">
+					<h1 class="main-title"> <%= info.nombre %>
+						<a href="/users/edit/<%= info.id %>">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
@@ -29,10 +29,9 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= info.usuario.email %></li>
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+						<li><%= info.email %></li>
+						<li><%= info.medias.length %> productos</li>
+						<li><%= info.comentarios.length %>comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -48,16 +47,16 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<% for(let i = 0; i < info.productos.length ; i++) { %>
+			<% for(let i = 0; i < info.medias.length ; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/<%= info.productos[i].id%>">
+						<a href="/products/<%= info.medias[i].id%>">
 							<figure class="product-box_image">
-								<img src="<%= info.productos[i].imagen_producto %>" alt="producto">
+								<img src="<%= info.medias[i].imagen_producto %>" alt="producto">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= info.productos[i].nombre_producto %></h2>
-								<p><%= info.productos[i].descripcion_producto %></p>
+								<h2><%= info.medias[i].nombre_producto %></h2>
+								<p><%= info.medias[i].descripcion_producto %></p>
 								
 							</article>
 						</a>
