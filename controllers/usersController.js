@@ -18,6 +18,9 @@ const usersController = {
             //req.session.userId = req.user.id;
             res.redirect('/users/profile/' + req.session.userId);
         }
+        if (req.body.recordarme) {
+            res.cookie('userId', user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); 
+        }
     },
     register: function(req, res) {
         return res.render ('register')

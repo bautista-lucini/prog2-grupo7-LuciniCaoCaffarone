@@ -37,7 +37,16 @@ let loginValidations = [
         }
         req.session.userId = user.id;
       })
-    })
+    }), //
+  body("recordarme")
+    .custom(function(value, {req}){
+      if (req.body.recordarme) {
+        req.body.recordarme = true;
+      } else {
+        req.body.recordarme = false;
+      }
+      return true;
+    })//
 ]
 
 let registerValidations = [

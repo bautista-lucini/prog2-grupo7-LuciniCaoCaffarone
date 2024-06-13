@@ -27,6 +27,9 @@
 					<p class="feedback"><%= errors.contraseña.msg %></p>
 				<% } %>
 				<input type="checkbox" id="recordarme" name="recordarme">
+				<!--<% if (locals.errors && errors.recordarme) { %>
+					<p class="feedback"><%= errors.recordarme.msg %></p>
+				<% } %>-->
 				<label for="recordarme">Recordarme</label><br><br>
 				<button type="submit">Iniciar sesión</button>
 			</form>
