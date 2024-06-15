@@ -3,8 +3,12 @@
 <!-- Include Head -->
 <%- include("./partials/head") %>
 <body>
-	<!-- Header -->
-	<%- include("./partials/headerLogueado",{info:info}) %>
+	<!-- Header trabajando-->
+	<% if (user) { %>
+		<% include('./partials/headerLogueado', { info: info }) %>
+	 <% } else { %>
+		<% include('./partials/header', { info: info }) %>
+	 <% } %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->

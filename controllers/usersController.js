@@ -9,19 +9,19 @@ const usersController = {
     login: function(req, res) {
         res.render('login');
     },
+    //
     postLogin: function(req, res) {
         const errors = validationResult(req);
-        if (!errors.isEmpty()){
-            res.render('login', {errors: errors.mapped(), old: req.body})
-        }
-        else {
-            //req.session.userId = req.user.id;
+        if (!errors.isEmpty()) {
+            res.render('login', {errors: errors.mapped(), old: req.body});
+        } else {
+            req.session.userId = req.user.id;
             res.redirect('/users/profile/' + req.session.userId);
         }
         if (req.body.recordarme) {
-            res.cookie('userId', user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); 
+            res.cookie('userId', req.user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); 
         }
-    },
+    }, //
     register: function(req, res) {
         return res.render ('register')
     },
@@ -56,12 +56,10 @@ const usersController = {
                 
             ],
             order: [["createdAt","DESC"]],
-        }
+        };
         usuarios.findByPk(id,criterio)
-          .then(function(usuario){
-            //return res.send(usuario)
-            res.render("profile",{info:usuario})
-
+        .then(function(usuario) {
+            res.render("profile", { info: usuario });
           })
     },
     profileEdit: function(req, res) {

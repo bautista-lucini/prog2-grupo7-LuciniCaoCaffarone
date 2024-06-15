@@ -27,39 +27,16 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
-app.use(function(req, res, next) {
-	if (req.session.usuarioLogueado != undefined) {
-		res.locals.user = req.session.usuarioLogueado	
-     }
-return next();
-});
-// cambiar 
-//app.use(function(req, res, next) {
-  //if (req.cookies.userId && !req.session.userId) {
-    //  db.Usuario.findOne({
-      //    where: { id: req.cookies.userId }
-      //})
-      //.then(function(user) {
-       //   if (user) {
-         //     req.session.userId = user.id;
-           //   res.locals.user = user;
-          //}
-          //next();
-      //})
-  //} else {
-    //  if (req.session.userId) {
-      //    db.Usuario.findOne({
-        //      where: { id: req.session.userId }
-          //})
-          //.then(function(user) {
-            //  res.locals.user = user;  
-          //})
-      //} 
-  //}
-//});
 //
-
+app.use(function(req, res, next) {
+  if(req.session.userId) {
+    res.locals.user = req.session.userId;
+  } else {
+    res.locals.user = null;
+  }
+  next();
+});
+//
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
