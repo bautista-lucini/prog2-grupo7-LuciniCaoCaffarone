@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const db = require('./database/models');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,20 +24,40 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({
-  secret: "Mi mensaje secreto",
+  secret: "Tm socks",
   resave: false,
   saveUninitialized: true
 }));
 //
+//app.use(function(req, res, next) {
+  //console.log("Middleware - req.session.userId:", req.session.userId);
+  //if (req.session.userId != undefined) {
+   //   res.locals.user = req.session.userId;
+  //} else {
+   //   res.locals.user = null;
+ // }
+ // return next();
+//});
+
 app.use(function(req, res, next) {
-  if(req.session.userId) {
-    res.locals.user = req.session.userId;
+  if (req.session.userId != undefined) {
+      // Aquí puedes cargar el usuario desde la base de datos si lo necesitas
+      db.Usuario.findByPk(req.session.userId)
+          .then(function(user) {
+              res.locals.user = user; // Asigna el usuario encontrado a locals.user
+              next();
+          })
+          .catch(function(err) {
+              console.error('Error al cargar usuario:', err);
+              next(err);
+          });
   } else {
-    res.locals.user = null;
+      res.locals.user = null; // Si no hay usuario en sesión, asigna null
+      next();
   }
-  next();
 });
-//
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);

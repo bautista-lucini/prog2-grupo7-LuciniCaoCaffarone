@@ -14,7 +14,7 @@ let loginValidations = [
           .then(function(user){
             if(!user){
               throw new Error("El email ingresado no existe.");
-             }
+            }
             req.user = user;
           })
     }),
@@ -25,28 +25,21 @@ let loginValidations = [
         where: {email: req.body.email} 
       }).then(function(user) {
         if (!user) {
-            req.session.error = "Ingrese un email válido.";
-            throw new Error("Error en la validación");
+            req.session.error = "Debe ingresar un email válido.";
+            throw new Error("Debe ingresar un email válido.");
         }
         const contraseñaValida = bcrypt.compareSync(value, user.contraseña);
         if (!contraseñaValida) {
           req.session.error = "Contraseña incorrecta.";
-          throw new Error("Error en la validación");
-            //return res.render('login', { error: "Contraseña incorrecta." });
-            //throw new Error("Contraseña incorrecta.");
+          throw new Error("Contraseña incorrecta.");
+        } else{
+          req.user = user;
+          if (req.body.recordarme) {
+          res.cookie('UsuarioNuevo', usuarioLogueado.id, { maxAge: 1000 * 60 * 60 * 24 * 7});
         }
-        req.session.userId = user.id;
+        }
       })
-    }), //
-  body("recordarme")
-    .custom(function(value, {req}){
-      if (req.body.recordarme) {
-        req.body.recordarme = true;
-      } else {
-        req.body.recordarme = false;
-      }
-      return true;
-    })//
+    })
 ]
 
 let registerValidations = [
@@ -91,5 +84,9 @@ router.post('/login', loginValidations, usersController.postLogin);
 
 router.get('/edit/:username', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
+
+router.get('/check-session', (req, res) => {
+  res.json({ session: req.session });
+});
 
 module.exports = router;

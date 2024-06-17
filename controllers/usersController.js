@@ -15,12 +15,15 @@ const usersController = {
         if (!errors.isEmpty()) {
             res.render('login', {errors: errors.mapped(), old: req.body});
         } else {
+            console.log("postLogin - req.user.id:", req.user.id);
             req.session.userId = req.user.id;
             res.redirect('/users/profile/' + req.session.userId);
         }
-        if (req.body.recordarme) {
-            res.cookie('userId', req.user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); 
-        }
+       // if (req.body.recordarme) {
+         //   res.cookie('userId', req.user.id, { maxAge: 30 * 24 * 60 * 60 * 1000 }); 
+       // }
+        console.log(req.session.userId);
+        console.log(req.cookie.userId);
     }, //
     register: function(req, res) {
         return res.render ('register')
@@ -59,11 +62,11 @@ const usersController = {
         };
         usuarios.findByPk(id,criterio)
         .then(function(usuario) {
-            res.render("profile", { info: usuario });
+            res.render("profile", { info: usuario, user: res.locals.user });
           })
     },
     profileEdit: function(req, res) {
-        res.render('profile-edit', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username });
+        res.render('profile-edit', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username, user: res.locals.user });
     }
 };
 

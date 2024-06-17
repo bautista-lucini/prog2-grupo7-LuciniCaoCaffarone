@@ -20,9 +20,8 @@ const indexController = {
             order: [["createdAt","DESC"]],
             limit: 8, 
         })
-        .then(function(result){
-            //return res.send(result)
-            res.render('index', {"productos": result});
+        .then(function(result) {
+            res.render('index', { productos: result, user: res.locals.user });
         })
         
     },

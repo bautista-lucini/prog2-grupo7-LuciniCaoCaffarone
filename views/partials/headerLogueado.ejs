@@ -32,13 +32,14 @@
 		<nav class="main-navbar">
 			<ul class="left-navbar">
 				<li><a href="/">Todos los productos</a></li>
-				<li><a href="/products/add/<%= info.usuario.nombre %>">Cargar productos</a></li>
-			</ul>
+				<li><a href="/products/add/<%= info.nombre %>">Cargar productos</a></li>
+			</ul>		
 
 
 			<ul class="right-navbar">
-				<li><a href="/users/profile/<%= info.usuario.id %>">
-						<%= info.usuario.nombre %> <i class="fas fa-user"></i>
+				<li><a href="/users/profile/<%= info.id %>">
+					<!--  <li><a href="/users/profile/<%= locals.user.id %>"> -->
+						<%= info.nombre %> <i class="fas fa-user"></i>
 					</a>
 				</li>
 				<li>

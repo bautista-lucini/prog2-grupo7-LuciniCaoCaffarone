@@ -5,7 +5,11 @@
 <body>
 	<!-- Header -->
 	<!-- Include Header -->
-	<%- include("./partials/header") %>
+	<% if (locals.user != null) { %>
+		<%-include('./partials/headerLogueado', { info: user }) %>
+	 <% } else { %>
+		<%- include('./partials/header', { info: user }) %>
+	 <% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
