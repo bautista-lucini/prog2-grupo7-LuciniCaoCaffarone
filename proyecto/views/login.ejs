@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+<body>
+	<!-- Include Header -->
+	<%- include("./partials/header") %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ingresar</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> <form action="/" method="GET">
+				<label for="usuario">Usuario:    </label>
+				<input type="email" id="usuario" name="usuario" required><br><br>
+				<label for="contraseña">Contraseña:</label>
+				<input type="password" id="contraseña" name="contraseña" required><br><br>
+				<input type="checkbox" id="recordarme" name="recordarme">
+				<label for="recordarme">Recordarme</label><br><br>
+				<button type="submit">Iniciar sesión</button>
+			</form>
+			</h2>
+		</div>
+	</div>
+
+<%- include("./partials/footer") %>
+	
+</body>
+
+</html>

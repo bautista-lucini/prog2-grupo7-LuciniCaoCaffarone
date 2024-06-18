@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+<body>
+	<!-- /Header -->
+	<%- include("./partials/header") %>
+
+	<!-- product detail -->
+<div class="container products-wrapper">
+    <% let productoEncontrado; %>
+    <% for (let i = 0; i < productos.length; i++) { %>
+        <% if (productos[i].id === productId) { %>
+            <% productoEncontrado = productos[i]; %>
+            <% break; %>
+        <% } %>
+    <% } %>
+
+    <% if (productoEncontrado) { %>
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"><%= productoEncontrado.modelo %></h2>
+            <p class="product-detail-description">
+                <a href="product-add.ejs">Editar</a>
+            </p>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <article class="col-12 col-lg-8 product-detail-info">
+                    <img src="<%= productoEncontrado.imagen %>" alt="" class="product-detail-img">
+                    <p class="product-detail-description">
+                        <%= productoEncontrado.descripcion %>
+                    </p>
+                </article>
+                <div class="col-12 col-lg-4">
+				
+					<section class="comments">
+                        <% if (productoEncontrado && productoEncontrado.comentarios.length > 0) { %>
+                            <% for (let i = 0; i < productoEncontrado.comentarios.length; i++) { %>
+                                <% const comentario = productoEncontrado.comentarios[i]; %>
+                                <article>
+                                    <img src="<%= comentario.imagen_perfil %>" alt="">
+                                    <div class="data">
+                                        <p class="user">
+                                            <strong><a href="/users/profile/<%= comentario.nombre_de_usuraio %>"><%= comentario.nombre_de_usuraio %>:</a></strong>
+                                            <%= comentario.texto %>
+                                        </p>
+                                    </div>
+                                </article>
+                            <% } %>
+                        <% } else { %>
+                            <p>No hay comentarios para este producto.</p>
+                        <% } %>
+                    </section>
+					
+					<form class="form" action="" method="POST">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+					</form>
+					<hr>
+				</div>
+            </div>
+        </div>
+    <% }  %>
+</div>
+<!-- /product detail -->
+
+<%- include("./partials/footer") %>
+	
+</body>	
+</html>

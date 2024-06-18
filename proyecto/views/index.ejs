@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include("./partials/head") %>
+<body>
+	<!-- Include Header -->
+	<%- include("./partials/header") %>
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner">
+		<img src="images/banner-tm.jpeg" alt="Banner de ofertas">
+	</div>
+	<!-- /Banner -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="blanco">Novedades</h2>
+		</div>
+		
+			<!-- Show the "ultimos" products -->
+			<% for(let i = 0; i < 4 ; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/<%= productos[i].id %>">
+							<figure class="product-box_image">
+								<img src="<%= productos[i].imagen_producto %>" alt="producto">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= productos[i].nombre_producto %></h2>
+								<p><%= productos[i].descripcion_producto %></p>
+								<a href="/users/profile/<%= productos[i].duenio.id %>">Usuario: <%= productos[i].duenio.nombre %></a>
+							 	
+							</article>
+						</a>
+					</section>
+				</div>
+			<% } %>
+		</div>
+	</div>
+	
+<!-- /Novedades -->
+	<!-- Más comentados -->
+<div class="container products-wrapper">
+	<div class="row">
+		<div class="col-12">
+			<h2 class="products-title">Más comentados</h2>
+		</div>
+		<!-- Show the "ultimos" products -->
+		<% for(let i = 4; i < 8 ; i++) { %>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/products/<%= productos[i].id %>">
+						<figure class="product-box_image">
+							<img src="<%= productos[i].imagen_producto %>" alt="producto">
+						</figure>
+						<article class="product-box_data">
+							<h2><%= productos[i].nombre_producto %></h2>
+							<p><%= productos[i].descripcion_producto %></p>
+							<a href="/users/profile/<%= productos[i].duenio.id %>">Usuario: <%= productos[i].duenio.nombre %></a>
+							 
+						</article>
+					</a>
+				</section>
+			</div>
+		<% } %>
+	</div>
+</div>
+<!-- /Más comentados -->
+
+<%- include("./partials/footer") %>
+
+</body>	
+</html>
