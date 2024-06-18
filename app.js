@@ -40,20 +40,26 @@ app.use(session({
 //});
 
 app.use(function(req, res, next) {
-  if (req.session.userId != undefined) {
-      // Aquí puedes cargar el usuario desde la base de datos si lo necesitas
-      db.Usuario.findByPk(req.session.userId)
+  if (req.cookies.usuarioRecordado && !req.session.userId) {
+      db.Usuario.findByPk(req.cookies.usuarioRecordado)
           .then(function(user) {
-              res.locals.user = user; // Asigna el usuario encontrado a locals.user
+              if(user) {
+                  req.session.userId = user.id;
+                  res.locals.user = user;
+              }
               next();
           })
-          .catch(function(err) {
-              console.error('Error al cargar usuario:', err);
-              next(err);
-          });
+  } else{
+    if(req.session.userId){
+      db.Usuario.findByPk(req.session.userId)
+        .then(function(user) {
+            res.locals.user = user;
+            next();
+        })
   } else {
-      res.locals.user = null; // Si no hay usuario en sesión, asigna null
+      res.locals.user = null;
       next();
+  }
   }
 });
 

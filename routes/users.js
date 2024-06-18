@@ -33,10 +33,10 @@ let loginValidations = [
           req.session.error = "Contraseña incorrecta.";
           throw new Error("Contraseña incorrecta.");
         } else{
-          req.user = user;
-          if (req.body.recordarme) {
-          res.cookie('UsuarioNuevo', usuarioLogueado.id, { maxAge: 1000 * 60 * 60 * 24 * 7});
-        }
+          req.session.user = user;
+          //if (req.body.recordarme) {
+          //res.cookie('usuarioRecordado', user, { maxAge: 1000 * 60 * 60 * 24 * 7});
+        //}
         }
       })
     })
@@ -81,6 +81,8 @@ router.post('/store', registerValidations, usersController.store);
 
 router.get('/login', usersController.login);
 router.post('/login', loginValidations, usersController.postLogin);
+
+router.post('/logout', usersController.logout);
 
 router.get('/edit/:username', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
