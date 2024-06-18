@@ -18,14 +18,15 @@ const usersController = {
             req.session.userId = user.id;
             if (req.body.recordarme) {
                 res.cookie('usuarioRecordado', user.id, { maxAge: 1000 * 60 * 60 * 24 * 7 }); 
+ 
             }
-            res.redirect('/users/profile/' + req.session.userId);
+            res.redirect('/users/profile/' + req.session.user.id);
         } },
     logout: function(req, res){
         req.session.destroy();
-        console.log(req.session)
+        console.log(req.session);
         res.clearCookie('usuarioRecordado');
-        console.log(req.cookie.usuarioRecordado)
+        console.log(req.cookies.usuarioRecordado);
         return res.redirect('/');
     },
     register: function(req, res){
