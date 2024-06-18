@@ -4,7 +4,7 @@ const productsController = require('../controllers/productsController.js');
 
 //router.get("/product", productsController.product)
 
-router.get('/id/:id', productsController.products); //metodo index no esta bien
+router.get('/id/:id', productsController.products); 
 router.get('/add', productsController.add);
 router.get('/search-results', productsController.showOne);
 
