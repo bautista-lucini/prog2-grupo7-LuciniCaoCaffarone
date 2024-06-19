@@ -12,16 +12,10 @@
 
 	<!-- product detail -->
 	<div class="container products-wrapper">
-        <% let productoEncontrado; %>
-        <% for (let i = 0; i < productos.length; i++) { %>
-            <% if (productos[i].id == productId) { %>
-                <% productoEncontrado = productos[i]; %>
-                <% break; %>
-            <% } %>
-        <% } %>
-        <% if (productoEncontrado) { %>
+
+        <% if (producto) { %>
             <div class="d-flex align-items-center">
-                <h2 class="products-title"><%= productoEncontrado.nombre_producto %></h2> 
+                <h2 class="products-title"><%= producto.nombre_producto %></h2> 
                 <p class="product-detail-description">
                     <a href="/product-add">Editar</a>
                 </p>
@@ -29,16 +23,16 @@
             <div class="product-detail">
                 <div class="row">
                     <article class="col-12 col-lg-8 product-detail-info">
-                        <img src=" <%= productoEncontrado.imagen_producto %>" alt="Imagen del producto" class="product-detail-img">
+                        <img src=" <%= producto.imagen_producto %>" alt="Imagen del producto" class="product-detail-img">
                         <p class="product-detail-description">
-                            <%= productoEncontrado.descripcion_producto %>
+                            <%= producto.descripcion_producto %>
                         </p>
                     </article>
                     <div class="col-12 col-lg-4">
     <!-- Comentarios del producto -->
                 <section class="comments">
-                    <% if (productoEncontrado.comentarios && productoEncontrado.comentarios.length > 0) { %>
-                        <% productoEncontrado.comentarios.forEach(function(comentario) { %>
+                    <% if (producto.comentarios && producto.comentarios.length > 0) { %>
+                        <% producto.comentarios.forEach(function(comentario) { %>
                             <article>
                                 <img src="<%= comentario.imagen_perfil %>" alt="">
                                 <div class="data">
@@ -60,6 +54,11 @@
                         <hr>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <a href="/users/profile/<%= producto.usuario_id %>">
+                    <h3 class="product-detail-description"> Este producto le pertenece a <%=  producto.duenio.nombre %></h3>
+                </a> 
             </div>
         <% } else { %>
             <h2>Producto no encontrado.</h2>
