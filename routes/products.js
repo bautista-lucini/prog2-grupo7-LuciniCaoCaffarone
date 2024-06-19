@@ -9,9 +9,6 @@ const { body } = require('express-validator');
 router.get('/id/:id', productsController.products); 
 router.get('/add', productsController.add);
 router.get('/search-results', productsController.showOne);
-
-
-router.get('/create', productsController.createForm);
 router.post('/create', productsController.create);
 
 router.get('/create', productsController.add);
