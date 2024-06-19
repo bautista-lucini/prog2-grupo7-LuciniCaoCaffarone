@@ -17,13 +17,17 @@
             <div class="d-flex align-items-center">
                 <h2 class="products-title"><%= producto.nombre_producto %></h2> 
                 <p class="product-detail-description">
-                    <a href="/product-add">Editar</a>
+
+                    <% if (locals.user && locals.user.id == producto.usuario_id) { %>
+                        <form action="/edit" method="POST"></form>
+                            <button type="submit" class="buy-now-button">Editar</button>
+                    <% } %>
                 </p>
             </div>
             <div class="product-detail">
                 <div class="row">
                     <article class="col-12 col-lg-8 product-detail-info">
-                        <img src=" <%= producto.imagen_producto %>" alt="Imagen del producto" class="product-detail-img">
+                        <img src="/<%= producto.imagen_producto %>" alt="Imagen del producto" class="product-detail-img">
                         <p class="product-detail-description">
                             <%= producto.descripcion_producto %>
                         </p>
@@ -37,8 +41,8 @@
                                 <img src="<%= comentario.imagen_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                        <strong><a href="/users/profile/<%= comentario.nombre_de_usuraio %>"><%= comentario.nombre_de_usuraio %>:</a></strong>
-                                        <%= comentario.texto %>
+                                        <strong><a href="/users/profile/<%= comentario.nombre_de_usuraio %>"><%= comentario.nombre_de_usuario %>:</a></strong>
+                                        <%= comentario.texto_comentario %>
                                     </p>
                                 </div>
                             </article>
@@ -47,7 +51,7 @@
                         <p>Este producto no tiene comentarios.</p>
                     <% } %>
                 </section>
-                        <form class="form" action="" method="POST">
+                        <form class="form" action="/add" method="POST">
                             <input class="form-input" type="text" value="" placeholder="Agregar comentario">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                         </form>
@@ -56,9 +60,9 @@
                 </div>
             </div>
             <div class="d-flex align-items-center">
-                <a href="/users/profile/<%= producto.usuario_id %>">
-                    <h3 class="product-detail-description"> Este producto le pertenece a <%=  producto.duenio.nombre %></h3>
-                </a> 
+                    <h3 class="product-detail-description"> Este producto le pertenece a  
+                        <a href="/users/profile/<%= producto.usuario_id %>"> <%=  producto.duenio.nombre %>   </a> 
+                    </h3>
             </div>
         <% } else { %>
             <h2>Producto no encontrado.</h2>
