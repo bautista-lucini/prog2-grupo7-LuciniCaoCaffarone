@@ -7,7 +7,11 @@ const {validationResult} = require('express-validator');
 
 const usersController = {
     login: function(req, res) {
-        res.render('login'); 
+        if (req.session.userId) {
+            return res.redirect('/users/profile/' + req.session.userId);
+        } else {
+            return res.render('login');
+        }
     },
     postLogin: function(req, res) {
         const errors = validationResult(req);
@@ -18,7 +22,6 @@ const usersController = {
             req.session.userId = user.id;
             if (req.body.recordarme) {
                 res.cookie('usuarioRecordado', user.id, { maxAge: 1000 * 60 * 60 * 24 * 7 }); 
- 
             }
             res.redirect('/users/profile/' + req.session.user.id);
         } },
@@ -29,8 +32,12 @@ const usersController = {
         console.log(req.cookies.usuarioRecordado);
         return res.redirect('/');
     },
-    register: function(req, res){
-        return res.render('register');
+    register: function(req, res) {
+        if (req.session.userId) {
+            return res.redirect('/users/profile/' + req.session.userId);
+        } else {
+            return res.render('register');
+        }
     },
     store: function(req, res){
         let formulario = req.body;

@@ -311,7 +311,8 @@ hr {
 }
 
 .product-detail-img {
-  width: 70%;
+  max-height: 500px;
+  width: fit-content;
   display: block;
   margin: auto;
 }

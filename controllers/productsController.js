@@ -9,14 +9,20 @@ let productsController = {
     let idMedia = req.params.id;
     let filtrado = {
       include: [
-        { association: "duenio" },
+        { association: "duenio",
+          attributes: ["nombre"]
+         },
         { association: "comentarios" }
       ]
     }
-    db.Producto.findAll(filtrado)
-    .then(function (productos) {
-        res.render("product", { productos: productos, productId: idMedia, user: res.locals.user });
-    })
+    db.Producto.findByPk(idMedia, filtrado) 
+      .then(function (producto) {
+        if (producto) {
+          res.render("product", { producto: producto, user: res.locals.user });
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }
+      })
       .catch(function (error) {
         return console.log(error);;
       });
