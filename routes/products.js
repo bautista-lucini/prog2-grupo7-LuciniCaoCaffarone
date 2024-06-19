@@ -9,5 +9,9 @@ router.get('/add', productsController.add);
 router.get('/search-results', productsController.showOne);
 
 
+router.get('/create', productsController.createForm);
+router.post('/create', productsController.create);
+
+
 module.exports = router;
 
