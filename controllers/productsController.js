@@ -27,11 +27,11 @@ let productsController = {
         return console.log(error);;
       });
   },
-  show: function (req, res) { // Asegúrate de incluir esta función
+  show: function (req, res) { 
     let id = req.params.id;
     let filtrado = {
       include: [
-        { association: "duenio", attributes: ["nombre"] },
+        { association: "duenio"},
         { association: "comentarios" }
       ]
     };
@@ -52,7 +52,7 @@ let productsController = {
     res.render('product', { title: "Detalle del producto", productos: db.lista_productos, productId: req.params.id });
   },
   add: function (req, res) {
-    res.render('product-add', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username });
+    res.render('product-add');
   },
   create: function (req, res) {
     const errors = validationResult(req);
@@ -69,7 +69,7 @@ let productsController = {
     })
     
     .then(function () {
-      res.redirect('/products');
+      res.redirect(`/users/profile/${req.session.user.id}`);
     })
     
     .catch(function (error) {
@@ -100,7 +100,7 @@ let productsController = {
     let filtro = {
       include: [{
         all: true,
-        nested: true
+        nested: true 
       }]
     };
 
@@ -127,7 +127,7 @@ let productsController = {
 
     db.Producto.update(info, filtro)
       .then((result) => {
-        return res.redirect("/product/detail/" + id);
+        return res.redirect("/products/detail/" + id);
       })
       .catch((err) => {
         console.log(err);
@@ -138,15 +138,15 @@ let productsController = {
     db.Producto.findByPk(id)
       .then((producto) => {
         if (producto.usuario_id === req.session.user.id) {
-          return db.Producto.destroy({
+         db.Producto.destroy({
             where: { id: id }
-          });
+          })
+          .then(()=>{
+            res.redirect('/users/profile/' + producto.usuario_id);
+          })
         } else {
-          res.redirect('/product/detail/' + id);
+          res.redirect('/products/id/' + id);
         }
-      })
-      .then(() => {
-        res.redirect('/products');
       })
       .catch((err) => {
         console.log(err);

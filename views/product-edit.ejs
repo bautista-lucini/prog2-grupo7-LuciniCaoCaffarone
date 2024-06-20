@@ -15,22 +15,23 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Editar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form method="POST" action="/products/create">
+				<form method="POST" action="/products/edit/<%=productos.id%>">
 					<label for="name">Nombre del producto:</label>
-					<input type="text" id="name" name="name" value="" required>
+					<input type="text" id="name" name="nombre_producto" value="<%=productos.nombre_producto%>" required>
 					
 					<label for="description">Descripción:</label>
-					<input type="text" id="description" name="description" value="" required>
+					<input type="text" id="description" name="descripcion_producto" value="<%=productos.descripcion_producto%>" required>
 					
 					<label for="image">Imagen del producto:</label>
-					<input type="text" id="image" name="image" value="" required>
+					<input type="text" id="image" name="imagen_producto" value="<%=productos.imagen_producto%>" required>
+					<input type="hidden" name="updatedAt" value="<%=new Date()%>">
 
 		
-					<button type="submit">Crear producto</button>
+					<button type="submit">Editar producto</button>
 				
 				  </form> 
 			</h2>

@@ -19,8 +19,9 @@
                 <p class="product-detail-description">
 
                     <% if (locals.user && locals.user.id == producto.usuario_id) { %>
-                        <form action="/edit" method="POST"></form>
-                            <button type="submit" class="buy-now-button">Editar</button>
+                        
+                           <a href="/products/edit/<%=producto.id%>">Editar</a>
+                           <a href="/products/delete/<%=producto.id%>">Borrar producto</a>
                     <% } %>
                 </p>
             </div>
