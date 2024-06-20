@@ -27,6 +27,27 @@ let productsController = {
         return console.log(error);;
       });
   },
+  show: function (req, res) { // Asegúrate de incluir esta función
+    let id = req.params.id;
+    let filtrado = {
+      include: [
+        { association: "duenio", attributes: ["nombre"] },
+        { association: "comentarios" }
+      ]
+    };
+
+    db.Producto.findByPk(id, filtrado)
+      .then(function (producto) {
+        if (producto) {
+          res.render("product", { producto: producto, user: res.locals.user });
+        } else {
+          res.status(404).send('Producto no encontrado');
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
   search: function (req, res) {
     res.render('product', { title: "Detalle del producto", productos: db.lista_productos, productId: req.params.id });
   },
@@ -112,6 +133,25 @@ let productsController = {
         console.log(err);
       });
   },
+  delete: function (req, res) {
+    let id = req.params.id;
+    db.Producto.findByPk(id)
+      .then((producto) => {
+        if (producto.usuario_id === req.session.user.id) {
+          return db.Producto.destroy({
+            where: { id: id }
+          });
+        } else {
+          res.redirect('/product/detail/' + id);
+        }
+      })
+      .then(() => {
+        res.redirect('/products');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
 }
 module.exports = productsController;

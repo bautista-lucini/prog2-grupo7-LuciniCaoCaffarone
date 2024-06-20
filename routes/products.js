@@ -25,6 +25,8 @@ router.post("/edit/:id", [
   body('description').notEmpty().withMessage('La descripción es obligatoria'),
   body('image').notEmpty().withMessage('La imagen es obligatoria')
 ], productsController.storeEdit)
+router.post("/delete/:id", productsController.delete);
+
 
 module.exports = router;
 
