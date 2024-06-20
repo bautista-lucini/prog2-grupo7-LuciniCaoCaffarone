@@ -18,6 +18,13 @@ router.post('/create', [
   body('image').notEmpty().withMessage('La imagen es obligatoria')
 ], productsController.create);
 
+router.get('/detail/:id', productsController.show);
+router.get("/edit/:id", productsController.edit);
+router.post("/edit/:id", [
+  body('name').notEmpty().withMessage('El nombre es obligatorio'),
+  body('description').notEmpty().withMessage('La descripción es obligatoria'),
+  body('image').notEmpty().withMessage('La imagen es obligatoria')
+], productsController.storeEdit)
 
 module.exports = router;
 
