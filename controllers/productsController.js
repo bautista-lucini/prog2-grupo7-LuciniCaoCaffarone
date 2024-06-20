@@ -55,7 +55,7 @@ let productsController = {
       return console.log(error);
     });
   },
-  
+
   showOne: function(req, res) {
     let querys = req.query.search;
 
@@ -74,5 +74,44 @@ let productsController = {
       return console.log(error);;
     });
   },
+  edit: function (req, res) {
+    let id = req.params.id;
+    let filtro = {
+      include: [{
+        all: true,
+        nested: true
+      }]
+    };
+
+    db.Producto.findByPk(id, filtro)
+      .then((result) => {
+        if (req.session.user && req.session.user.id === result.usuario_id) {
+          res.render("product-edit", { productos: result });
+        } else {
+          res.redirect('/product/detail/' + id);
+        }
+      }).catch((err) => {
+        console.log("Error: " + err);
+      });
+  },
+
+  storeEdit: function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render('product-edit', { errors: errors.array(), productos: req.body });
+    }
+    let info = req.body;
+    let id = req.params.id;
+    let filtro = { where: { id: id } };
+
+    db.Producto.update(info, filtro)
+      .then((result) => {
+        return res.redirect("/product/detail/" + id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
 }
 module.exports = productsController;
