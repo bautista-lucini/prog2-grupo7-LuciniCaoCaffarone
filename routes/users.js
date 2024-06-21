@@ -84,11 +84,14 @@ router.post('/login', loginValidations, usersController.postLogin);
 
 router.post('/logout', usersController.logout);
 
-router.get('/edit/:username', usersController.profileEdit);
+router.get('/edit/:id', usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
+router.post('/update/:id', usersController.updateUser)
+
 
 router.get('/check-session', (req, res) => {
   res.json({ session: req.session });
 });
+
 
 module.exports = router;

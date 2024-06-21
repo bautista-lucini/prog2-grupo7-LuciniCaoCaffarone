@@ -18,21 +18,29 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"><form method="GET">
-			<label for="email">Email:</label><br>
-			<input type="email" id="email" name="email" required><br><br>
-			<label for="usuario">Usuario:</label><br>
-			<input type="text" id="usuario" name="usuario" required><br><br>
-			<label for="contraseña">Contraseña:</label><br>
-			<input type="password" id="contraseña" name="contraseña" required>	<br><br>
-			<label for="fechaNacimiento">Fecha de nacimiento:</label><br>
-			<input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>	<br>
-			<label for="nroDocumento">Número de documento:</label><br>
-			<input type="number" id="nroDocumento" name="nroDocumento" required><br><br>
-			<label for="fotoPerfil">Foto de perfil:</label><br>
-			<input type="text" id="fotoPerfil" name="fotoPerfil" required><br><br>
-			<button type="submit">Guardar cambios</button><br>
-			</form> 
+			<h2 class="col-12">
+				<form method="POST" action="/users/update/<%= usuario.id%>">
+					<label for="name">Nombre:</label><br><br>
+					<input value="<%= usuario.nombre%>" type="text" id="name" name="name" required ><br> <br>
+					          
+					<label for="email">Email:</label><br><br>
+					<input value="<%= usuario.email%>" type="email" id="email" name="email" required ><br> <br>
+					           
+					<label for="usuario" class="padding">Usuario:</label><br><br>
+					<input value="<%= usuario.usuario%>" type="text" id="usuario" name="usuario" required><br><br>
+					          
+					<label for="contraseña">Contraseña:</label><br><br>
+					<input  type="password" id="contraseña" name="contraseña" ><br><br>
+					           
+					<label for="fechaNacimiento">Fecha de nacimiento:</label><br><br>
+					<input value="<%= usuario.fecha%>" type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+					           
+					<label for="nroDocumento">Número de documento:</label><br><br>
+					<input value="<%= usuario.dni%>" type="number" id="nroDocumento" name="nroDocumento" required><br><br>
+					         
+			   
+				 <button type="submit">Editar</button>
+				</form> 
 			</h2>
 		</div>
 	</div>

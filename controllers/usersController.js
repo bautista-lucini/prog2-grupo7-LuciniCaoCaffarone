@@ -77,8 +77,55 @@ const usersController = {
           })
     },
     profileEdit: function(req, res){
-        res.render('profile-edit', { info: db, usuarios: db.lista_usuarios, productos: db.lista_productos, username: req.params.username, user: res.locals.user });
-    }  
+        let id = req.params.id;
+        //console.log(id)
+        usuarios.findByPk(id)
+        .then(function(usuario){
+           // res.send(usuario)
+           res.render('profile-edit', { usuario: usuario });
+        })
+       
+    
+    },
+    updateUser: function(req,res){
+        //return res.send(req.body)
+        if(req.params.id == req.session.userId){
+            let usuario = {}
+            if(req.body.contraseña.length>0){
+                 usuario = {
+                    nombre: req.body.name,
+                    usuario: req.body.usuario,
+                    email: req.body.email,
+                    contraseña: bcrypt.hashSync(req.body.contraseña, 10),
+                    fecha: req.body.fechaNacimiento,
+                    dni: req.body.nroDocumento,
+                }
+            }else{
+                 usuario = {
+                    nombre: req.body.name,
+                    usuario: req.body.usuario,
+                    email: req.body.email,
+                    fecha: req.body.fechaNacimiento,
+                    dni: req.body.nroDocumento,
+                }
+            }
+            
+            usuarios.update(usuario,{
+                where:{
+                    id : req.params.id
+                }
+            })
+            .then(function(){
+                res.redirect('/users/profile/' + req.params.id)
+            })
+        }else{
+            res.redirect('/users/profile/' + req.session.userId)
+        }
+        
+
+    }
+
+
 };
 
 module.exports = usersController;
