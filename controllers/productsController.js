@@ -12,12 +12,13 @@ let productsController = {
         { association: "duenio",
           attributes: ["nombre"]
          },
-        { association: "comentarios" }
+        { association: "comentarios",include:['comentador'],order:['createdAt', 'desc'] }
       ]
     }
     db.Producto.findByPk(idMedia, filtrado) 
       .then(function (producto) {
         if (producto) {
+          //res.send(producto)
           res.render("product", { producto: producto, user: res.locals.user });
         } else {
           res.status(404).send('Producto no encontrado');
@@ -32,7 +33,7 @@ let productsController = {
     let filtrado = {
       include: [
         { association: "duenio"},
-        { association: "comentarios" }
+        { association: "comentarios"}
       ]
     };
 

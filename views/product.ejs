@@ -39,10 +39,10 @@
                     <% if (producto.comentarios && producto.comentarios.length > 0) { %>
                         <% producto.comentarios.forEach(function(comentario) { %>
                             <article>
-                                <img src="<%= comentario.imagen_perfil %>" alt="">
+                                <img src="/images/users/<%= comentario.comentador.foto_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                        <strong><a href="/users/profile/<%= comentario.nombre_de_usuraio %>"><%= comentario.nombre_de_usuario %>:</a></strong>
+                                        <strong><a href="/users/profile/<%= comentario.comentador.id%>"><%= comentario.comentador.nombre %>:</a></strong>
                                         <%= comentario.texto_comentario %>
                                     </p>
                                 </div>
