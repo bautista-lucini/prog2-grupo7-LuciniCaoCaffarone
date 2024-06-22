@@ -83,8 +83,17 @@ const usersController = {
         .then(function(usuario){
            // res.send(usuario)
            res.render('profile-edit', { usuario: usuario });
-        })
+        });
        
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+            db.Usuario.create(user) // no se deberia crear, sino updatear, 
+            .then(function(result){
+                res.redirect('/users/profile/' + result.id)
+            })
+        } else {
+           // res.render('register', {errors: errors.mapped(), old: req.body})  Esta linea esta mal, pq nos lleva a register y no a editar mi perfil
+        }
     
     },
     updateUser: function(req,res){

@@ -77,17 +77,7 @@ let editValidations = [
   .notEmpty().bail(),
 body('email') 
   .notEmpty() 
-  .isEmail()
-  .custom(function(value){ 
-       return db.Usuario.findOne({
-         where: { email: value }, 
-       })
-           .then(function(usuario){
-              if(usuario){
-               throw new Error('El email ingresado ya existe.');
-              }
-           })
-}),
+  .isEmail(),
 body('usuario')
     .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
     .isLength({ min: 5 }).withMessage('El nombre de usuario debe ser más largo'), 
@@ -116,7 +106,7 @@ router.post('/login', loginValidations, usersController.postLogin);
 
 router.post('/logout', usersController.logout);
 
-router.get('/edit/:id', usersController.profileEdit);
+router.get('/edit/:id', editValidations, usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
 router.post('/update/:id',editValidations, usersController.updateUser);
 
