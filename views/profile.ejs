@@ -13,7 +13,7 @@
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
-		
+		<% if (info) { %>
 		<div class="row">
 			<div class="img-container offset-3 col-2">
 				<img src= "/images/users/<%= info.foto_perfil %>" alt="foto de perfil" class="foto-perfil"> <!--chequear pra foto perfil usuario -->
@@ -45,7 +45,14 @@
 				</div>
 			</div>
 		</div>
-		
+		<% } else { %>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Usuario no encontrado</h2>
+                </div>
+            </div>
+        <% } %>
+
 	</section>
 	<!-- /Datos del usuario -->
 

@@ -44,10 +44,10 @@ let loginValidations = [
 
 let registerValidations = [
     body("name")
-      .notEmpty().bail(),
+      .notEmpty(),
     body('email')
-      .notEmpty() 
-      .isEmail()
+      .notEmpty().bail()
+      .isEmail().bail()
       .custom(function(value){ 
            return db.Usuario.findOne({
              where: { email: value }, 
@@ -65,31 +65,28 @@ let registerValidations = [
         .notEmpty().withMessage('Debes completar la contraseña').bail()
         .isLength({ min: 4 }).withMessage('La contraseña debe contener al menos 4 caracteres'),
     body('fechaNacimiento')
-        .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD').bail(),
+        .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD'),
     body("nroDocumento")
-       .isNumeric().withMessage("Este campo debe ser completado solo con números").bail(),
+       .isNumeric().withMessage("Este campo debe ser completado solo con números"),
     body('fotoPerfil')
 ]
 
 let editValidations = [
-
   body("name")
-  .notEmpty().bail(),
-body('email') 
-  .notEmpty() 
-  .isEmail(),
-body('usuario')
+    .notEmpty(),
+  body('email') 
+    .notEmpty().bail()
+    .isEmail(),
+  body('usuario')
     .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
-    .isLength({ min: 5 }).withMessage('El nombre de usuario debe ser más largo'), 
-body('contraseña')
-    .bail()
+    .isLength({ min: 5 }).withMessage('El nombre de usuario debe ser más largo'),
+  body('contraseña')
     .isLength({ min: 4 }).withMessage('La contraseña debe contener al menos 4 caracteres'),
-body('fechaNacimiento')
-    .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD').bail(),
-body("nroDocumento")
-   .isNumeric().withMessage("Este campo debe ser completado solo con números").bail(),
-body('fotoPerfil')
-
+  body('fechaNacimiento')
+    .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD'),
+  body("nroDocumento")
+   .isNumeric().withMessage("Este campo debe ser completado solo con números"),
+  body('fotoPerfil')
 ]
 
 
@@ -106,8 +103,9 @@ router.post('/login', loginValidations, usersController.postLogin);
 
 router.post('/logout', usersController.logout);
 
-router.get('/edit/:id', editValidations, usersController.profileEdit);
 router.get('/profile/:id', usersController.profile);
+
+router.get('/edit/:id', usersController.profileEdit);
 router.post('/update/:id',editValidations, usersController.updateUser);
 
 
