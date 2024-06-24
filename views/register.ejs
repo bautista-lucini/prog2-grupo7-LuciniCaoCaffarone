@@ -17,37 +17,37 @@
 			<h2 class="col-12">   
                 <form method="POST" action="/users/store">
                 <label for="name">Nombre:</label><br><br>
-                <input type="text" id="name" name="name" required ><br> <br>
+                <input type="text" id="name" name="name" value="<%= locals.old !== undefined && old.name ? old.name : "" %>" required  ><br> <br>
                 <% if (locals.errors && errors.name) { %>
                     <p class="feedback"><%= errors.name.msg %></p>
                 <% } %>           
                 <label for="email">Email:</label><br><br>
-                <input type="email" id="email" name="email" required ><br> <br>
+                <input type="email" id="email" name="email" value="<%= locals.old !== undefined && old.email ? old.email : "" %>" required ><br> <br>
                 <% if (locals.errors && errors.email) { %>
                     <p class="feedback"><%= errors.email.msg %></p>
                 <% } %>           
                 <label for="usuario" class="padding">Usuario:</label><br><br>
-                <input type="text" id="usuario" name="usuario" required><br><br>
+                <input type="text" id="usuario" name="usuario" value="<%= locals.old !== undefined && old.usuario ? old.usuario : "" %>" required><br><br>
                 <% if (locals.errors && errors.usuario) { %>
                     <p class="feedback"><%= errors.usuario.msg %></p>
                 <% } %>           
                 <label for="contraseña">Contraseña:</label><br><br>
-                <input type="password" id="contraseña" name="contraseña" required><br><br>
+                <input type="password" id="contraseña" name="contraseña" value="<%= locals.old !== undefined && old.contraseña ? old.contraseña : "" %>" required><br><br>
                 <% if (locals.errors && errors.contraseña) { %>
                     <p class="feedback"><%= errors.contraseña.msg %></p>
                 <% } %>           
                 <label for="fechaNacimiento">Fecha de nacimiento:</label><br><br>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br><br>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<%= locals.old !== undefined && old.fechaNacimiento ? old.fechaNacimiento : "" %>"><br><br>
                 <% if (locals.errors && errors.fechaNacimiento) { %>
                     <p class="feedback"><%= errors.fechaNacimiento.msg %></p>
                 <% } %>           
                 <label for="nroDocumento">Número de documento:</label><br><br>
-                <input type="number" id="nroDocumento" name="nroDocumento" required><br><br>
+                <input type="number" id="nroDocumento" name="nroDocumento" value="<%= locals.old !== undefined && old.nroDocumento ? old.nroDocumento : "" %>"><br><br>
                 <% if (locals.errors && errors.nroDocumento) { %>
                     <p class="feedback"><%= errors.nroDocumento.msg %></p>
                 <% } %>           
                 <label for="fotoPerfil">Foto de perfil:</label><br><br>
-                <input type="text" id="fotoPerfil" name="fotoPerfil" required><br><br>
+                <input type="text" id="fotoPerfil" name="fotoPerfil" value="<%= locals.old !== undefined && old.fotoPerfil ? old.fotoPerfil : "" %>"><br><br>
                 <% if (locals.errors && errors.fotoPerfil) { %>
                     <p class="feedback"><%= errors.fotoPerfil.msg %></p>
                 <% } %>

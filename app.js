@@ -44,8 +44,9 @@ app.use(function(req, res, next) {
       db.Usuario.findByPk(req.cookies.usuarioRecordado)
           .then(function(user) {
               if(user) {
-                  req.session.user = user;
-                  res.locals.user = user;
+                req.session.userId = user.id;
+                req.session.user = user;
+                res.locals.user = user;
               }
               next();
           })
@@ -62,7 +63,6 @@ app.use(function(req, res, next) {
   }
   }
 });
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

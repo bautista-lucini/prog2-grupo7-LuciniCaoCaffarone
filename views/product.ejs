@@ -39,11 +39,11 @@
                     <% if (producto.comentarios && producto.comentarios.length > 0) { %>
                         <% for(let i = 0 ; i< producto.comentario.lenght ; ++ ) { %>
                             <article>
-                                <img src="<%= producto.comentarios[i].comentador.foto_perfil %>" alt="">
+                                <img src="<%= comentario.imagen_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                        <strong><a href="/users/profile/<%= producto.comentarios[i].comentador.id %>"><%= producto.comentarios[i].comentador.nombre %>:</a></strong>
-                                        <%= producto.comentarios[i].texto_comentario %>
+                                        <strong><a href="/users/profile/<%= comentario.comentador.id%>"><%= comentario.comentador.nombre %>:</a></strong>
+                                        <%= comentario.texto_comentario %>
                                     </p>
                                 </div>
                             </article>
