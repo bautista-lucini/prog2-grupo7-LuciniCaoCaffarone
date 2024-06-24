@@ -13,7 +13,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 
-        <% if (producto) { %>
+        <% if (producto){ %>
             <div class="d-flex align-items-center">
                 <h2 class="products-title"><%= producto.nombre_producto %></h2> 
                 <p class="product-detail-description">
@@ -37,13 +37,13 @@
     <!-- Comentarios del producto -->
                 <section class="comments">
                     <% if (producto.comentarios && producto.comentarios.length > 0) { %>
-                        <% for(let i = 0 ; i< producto.comentario.lenght ; ++ ) { %>
+                        <% for(let i = 0 ; i< producto.comentarios.length; i++) { %>
                             <article>
-                                <img src="<%= producto.comentario[i].comentador.imagen_perfil %>" alt="">
+                                <img src="<%= producto.comentarios[i].comentador.imagen_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                        <strong><a href="/users/profile/<%= producto.comentario[i].comentador.id%>"><%= producto.comentario[i].comentador.nombre %>:</a></strong>
-                                        <%= producto.comentario[i].texto_comentario %>
+                                        <strong><a href="/users/profile/<%= producto.comentarios[i].comentador.id%>"><%= producto.comentarios[i].comentador.nombre %>:</a></strong>
+                                        <%= producto.comentarios[i].texto_comentario %>
                                     </p>
                                 </div>
                             </article>
