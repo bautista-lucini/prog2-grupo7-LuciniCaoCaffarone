@@ -12,7 +12,7 @@ let productsController = {
         { association: "duenio",
          
          },
-        { association: "comentarios",include:['comentador'],order:['createdAt', 'desc'] }
+        { association: "comentarios",include:['comentador'],order:['createdAt', 'DESC'] }
       ]
     }
     db.Producto.findByPk(idMedia, filtrado) 
@@ -27,6 +27,23 @@ let productsController = {
       .catch(function (error) {
         return console.log(error);;
       });
+  },
+  commentAdd: function (req, res){
+if(res.locals.user){
+  let comentario = {
+    productos_id : req.params.productId, 
+    usuario_id : res.locals.user.id , 
+    texto_comentario : req.body.comentario,
+    createdAt: new Date(),
+  }
+  db.Comentario.create(comentario)
+  .then(function(){
+    res.redirect("/products/id/"+ req.params.productId )
+  })
+}
+else{
+  res.redirect("/")
+}
   },
   show: function (req, res) { 
     let id = req.params.id;
