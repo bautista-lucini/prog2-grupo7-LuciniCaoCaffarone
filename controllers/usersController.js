@@ -79,33 +79,15 @@ const usersController = {
     },
     profileEdit: function (req, res) {
         let id = req.params.id;
-        //console.log(id)
         usuarios.findByPk(id)
             .then(function (usuario) {
-                // res.send(usuario)
                 res.render('profile-edit', { usuario: usuario });
             });
-
-
-
     },
     updateUser: function (req, res) {
-        //return res.send(req.body)
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            db.Usuario.update(user) 
-                .then(function (result) {
-                    res.redirect('/users/profile/' + result.id)
-                })
-        } else {
-            // res.render('register', {errors: errors.mapped(), old: req.body})  Esta linea esta mal, pq nos lleva a register y no a editar mi perfil
-        }
-
-
-
         if (req.params.id == req.session.userId) {
-            let usuario = {}
+            let usuario = {};
             if (req.body.contraseña.length > 0) {
                 usuario = {
                     nombre: req.body.name,
@@ -114,6 +96,7 @@ const usersController = {
                     contraseña: bcrypt.hashSync(req.body.contraseña, 10),
                     fecha: req.body.fechaNacimiento,
                     dni: req.body.nroDocumento,
+                    foto_perfil: req.body.fotoPerfil
                 }
             } else {
                 usuario = {
@@ -122,26 +105,24 @@ const usersController = {
                     email: req.body.email,
                     fecha: req.body.fechaNacimiento,
                     dni: req.body.nroDocumento,
+                    foto_perfil: req.body.fotoPerfil
                 }
             }
-
-            usuarios.update(usuario, {
-                where: {
-                    id: req.params.id
-                }
-            })
-                .then(function () {
-                    res.redirect('/users/profile/' + req.params.id)
+            if (errors.isEmpty()) {
+                usuarios.update(usuario, {
+                    where: { id: req.params.id }
+                }).then(function () {
+                    res.redirect('/users/profile/' + req.params.id);
                 })
-        } else {
-            res.redirect('/users/profile/' + req.session.userId)
+            } else {
+                usuarios.findByPk(req.params.id).then(function (usuarioCompleto) {
+                    res.render('profile-edit', { errors: errors.mapped(), old: req.body, usuario: usuarioCompleto });
+                });
+            }
+        } else{
+            res.redirect('/users/profile/' + req.session.userId);
         }
-
-
     }
-
-
-
 };
 
 module.exports = usersController;

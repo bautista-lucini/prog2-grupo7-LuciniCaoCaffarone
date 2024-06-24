@@ -81,14 +81,21 @@ let editValidations = [
     .notEmpty().withMessage('Debes completar el nombre de usuario').bail()
     .isLength({ min: 5 }).withMessage('El nombre de usuario debe ser más largo'),
   body('contraseña')
-    .isLength({ min: 4 }).withMessage('La contraseña debe contener al menos 4 caracteres'),
+    .custom(function(value){ 
+      if (!value) {
+        return true;
+    }
+    if (value.length < 4) {
+        throw new Error('La contraseña debe contener al menos 4 caracteres');
+    }
+    return true;
+    }),
   body('fechaNacimiento')
     .isDate().withMessage('Debe ingresar una fecha en el formato YYYY/MM/DD'),
   body("nroDocumento")
    .isNumeric().withMessage("Este campo debe ser completado solo con números"),
   body('fotoPerfil')
 ]
-
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -106,8 +113,7 @@ router.post('/logout', usersController.logout);
 router.get('/profile/:id', usersController.profile);
 
 router.get('/edit/:id', usersController.profileEdit);
-router.post('/update/:id',editValidations, usersController.updateUser);
-
+router.post('/update/:id', editValidations, usersController.updateUser);
 
 router.get('/check-session', (req, res) => {
   res.json({ session: req.session });
