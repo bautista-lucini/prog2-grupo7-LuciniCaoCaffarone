@@ -10,7 +10,7 @@ let productsController = {
     let filtrado = {
       include: [
         { association: "duenio",
-          attributes: ["nombre"]
+         
          },
         { association: "comentarios",include:['comentador'],order:['createdAt', 'desc'] }
       ]
@@ -18,7 +18,7 @@ let productsController = {
     db.Producto.findByPk(idMedia, filtrado) 
       .then(function (producto) {
         if (producto) {
-          //res.send(producto)
+          res.send(producto)
           res.render("product", { producto: producto, user: res.locals.user });
         } else {
           res.status(404).send('Producto no encontrado');
