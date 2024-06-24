@@ -12,7 +12,7 @@ let productsController = {
         { association: "duenio",
          
          },
-        { association: "comentarios",include:['comentador'],order:['createdAt', 'desc'] }
+        { association: "comentarios",include:['comentador'],order:['createdAt', 'DESC'] }
       ]
     }
     db.Producto.findByPk(idMedia, filtrado) 
