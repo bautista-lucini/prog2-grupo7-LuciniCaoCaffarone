@@ -57,7 +57,14 @@
 					<% } %>
 					
 					<label for="fotoPerfil">Foto de perfil:</label><br><br>
-					<input  value="<%= usuario.foto_perfil%>" type="text" id="fotoPerfil" name="fotoPerfil"><br><br>
+					<select id="fotoPerfil" name="fotoPerfil">
+						<option value="<%= usuario.foto_perfil%>"> <%= usuario.foto_perfil%> </option>
+						<option value="AntoniaCaos.jpeg"> AntoniaCaos.jpeg</option>
+						<option value="CaroCurtis.jpeg"> CaroCurtis.jpeg</option>
+						<option value="lucaslewis.jpg"> lucaslewis.jpg</option>
+						<option value="nicolorem.jpg"> nicolorem.jpg</option>
+						<option value="shellywillis.jpg"> shellywillis.jpg</option>
+					</select><br><br>
 					<% if (locals.errors && errors.fotoPerfil) { %>
 						<p class="feedback"><%= errors.fotoPerfil.msg %></p>
 					<% } %>

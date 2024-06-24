@@ -46,8 +46,14 @@
                 <% if (locals.errors && errors.nroDocumento) { %>
                     <p class="feedback"><%= errors.nroDocumento.msg %></p>
                 <% } %>           
-                <label for="fotoPerfil">Foto de perfil:</label><br><br>
-                <input type="text" id="fotoPerfil" name="fotoPerfil" value="<%= locals.old !== undefined && old.fotoPerfil ? old.fotoPerfil : "" %>"><br><br>
+                <select id="fotoPerfil" name="fotoPerfil">
+                    <option value="">Eliga una foto de perfil</option>
+                    <option value="AntoniaCaos.jpeg"> AntoniaCaos.jpeg</option>
+                    <option value="CaroCurtis.jpeg"> CaroCurtis.jpeg</option>
+                    <option value="lucaslewis.jpg"> lucaslewis.jpg</option>
+                    <option value="nicolorem.jpg"> nicolorem.jpg</option>
+                    <option value="shellywillis.jpg"> shellywillis.jpg</option>
+                </select><br><br>
                 <% if (locals.errors && errors.fotoPerfil) { %>
                     <p class="feedback"><%= errors.fotoPerfil.msg %></p>
                 <% } %>
