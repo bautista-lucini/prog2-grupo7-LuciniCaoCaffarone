@@ -20,8 +20,8 @@
 
                     <% if (locals.user && locals.user.id == producto.usuario_id) { %>
                         
-                           <a href="/products/edit/<%=producto.id%>">Editar</a>
-                           <a href="/products/delete/<%=producto.id%>">Borrar producto</a>
+                           <a href="/products/edit/<%=producto.id%>"><button  class="buy-now-button">Editar </button></a> 
+                           <a href="/products/delete/<%=producto.id%>"><button class="buy-now-button">Borrar </button></a>
                     <% } %>
                 </p>
             </div>
@@ -51,11 +51,15 @@
                     <% } else { %>
                         <p>Este producto no tiene comentarios.</p>
                     <% } %>
-                </section>
+                </section> 
+                <% if(locals.user){%>
                         <form class="form"  action="/products/commentAdd/<%=producto.id%> " method="POST">
                             <input name="comentario" class="form-input" type="text" value="" placeholder="Agregar comentario">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                        </form>
+                        </form> 
+                        <% } else { %>
+                        <p> Debes estar logueado para comentar</p>
+                        <% } %>
                         <hr>
                     </div>
                 </div>

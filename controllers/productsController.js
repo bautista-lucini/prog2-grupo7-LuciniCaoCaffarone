@@ -29,16 +29,21 @@ let productsController = {
       });
   },
   commentAdd: function (req, res){
-let comentario = {
-  productos_id : req.params.productId, 
-  usuario_id : res.locals.user.id , 
-  texto_comentario : req.body.comentario,
-  createdAt: new Date(),
+if(res.locals.user){
+  let comentario = {
+    productos_id : req.params.productId, 
+    usuario_id : res.locals.user.id , 
+    texto_comentario : req.body.comentario,
+    createdAt: new Date(),
+  }
+  db.Comentario.create(comentario)
+  .then(function(){
+    res.redirect("/products/id/"+ req.params.productId )
+  })
 }
-db.Comentario.create(comentario)
-.then(function(){
-  res.redirect("/products/id/"+ req.params.productId )
-})
+else{
+  res.redirect("/")
+}
   },
   show: function (req, res) { 
     let id = req.params.id;
