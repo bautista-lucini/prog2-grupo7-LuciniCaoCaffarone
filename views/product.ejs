@@ -39,7 +39,7 @@
                     <% if (producto.comentarios && producto.comentarios.length > 0) { %>
                         <% for(let i = 0 ; i< producto.comentarios.length; i++) { %>
                             <article>
-                                <img src="<%= producto.comentarios[i].comentador.imagen_perfil %>" alt="">
+                                <img src="/images/users/<%= producto.comentarios[i].comentador.foto_perfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
                                         <strong><a href="/users/profile/<%= producto.comentarios[i].comentador.id%>"><%= producto.comentarios[i].comentador.nombre %>:</a></strong>
@@ -52,8 +52,8 @@
                         <p>Este producto no tiene comentarios.</p>
                     <% } %>
                 </section>
-                        <form class="form" action="/add" method="POST">
-                            <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                        <form class="form"  action="/products/commentAdd/<%=producto.id%> " method="POST">
+                            <input name="comentario" class="form-input" type="text" value="" placeholder="Agregar comentario">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                         </form>
                         <hr>

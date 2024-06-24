@@ -28,6 +28,18 @@ let productsController = {
         return console.log(error);;
       });
   },
+  commentAdd: function (req, res){
+let comentario = {
+  productos_id : req.params.productId, 
+  usuario_id : res.locals.user.id , 
+  texto_comentario : req.body.comentario,
+  createdAt: new Date(),
+}
+db.Comentario.create(comentario)
+.then(function(){
+  res.redirect("/products/id/"+ req.params.productId )
+})
+  },
   show: function (req, res) { 
     let id = req.params.id;
     let filtrado = {
